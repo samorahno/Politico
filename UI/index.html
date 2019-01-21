@@ -144,7 +144,7 @@
     
     <div class="input-group">
             <button type="submit" name="submit" class="btn">Login</button>
-			<a href="#"><p>forgot password?</p></a>
+			<a href="#open-modal3"><p>forgot password?</p></a>
     </div>
 
  </form>
@@ -188,4 +188,31 @@
   </div>
 </div>
 <!-- /Modal 2-->
+
+<!-- Modal 3-->
+<div id="open-modal3" class="modal-window" style="text-align:center; overflow:scroll;">
+  <div>
+    
+    <div>
+	<a href="#modal-close" title="Close" class="modal-close">close &times;</a>
+		<form action="views/dashboard.html" method="POST" class="form-modal">
+	<h1>Reset Password</h1>
+     <div class="input-group">
+            
+         <label>Email</label>
+         <input type="text" name="fname" placeholder="Enter Email" required>
+         
+     </div>
+    
+    
+    <div class="input-group">
+            <button type="submit" name="submit" class="btn">Reset</button>
+    </div>
+
+ </form>
+	</div>
+  </div>
+</div>
+<!-- /Modal 3-->
+
 </html>
