@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Politico Dashboard</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/styleb.css" type="text/css">
+
+</head>
+<body>
+	<header>
+		<a href="dashboard.html"><span></span>Politico</a>
+		
+		<a href="#" class="minimize_button" onclick="togle_nav_func()"><span><i class="fa fa-bars fa-1x"></i></span></a>
+	</header>
+	<div class="side-nav visible" id="togle_nav">
+		<nav>
+			<ul>
+				<li>
+					<a href="userdashboard.html">
+						<span ><i class="fa fa-home fa-fw"></i></span>
+						<span>Home</span>
+					</a>
+				</li>
+				<li> 
+					<a href="party.html">
+						<span ><i class="fa fa-asterisk"></i></span>
+						<span>Political Party</span>
+					</a>
+				</li>
+				<li> 
+					<a href="office.html">
+						<span ><i class="fa fa-compress"></i></span>
+						<span>Political Office</span>
+					</a>
+				</li>
+				<li> 
+					<a href="apply.html">
+						<span ><i class="fa fa-pencil-square"></i></span>
+						<span>Apply for office</span>
+					</a>
+				</li>
+				<li> 
+					<a href="vote.html">
+						<span ><i class="fa fa-user"></i></span>
+						<span>Vote</span>
+					</a>
+				</li>
+				
+				<li> 
+					<a href="vote_resultu.html">
+						<span ><i class="fa fa-envelope"></i></span>
+						<span>Vote Result</span>
+					</a>
+				</li>
+				
+				<li class="active">
+					<a href="viewprofile.html">
+						<span ><i class="fa fa-envelope"></i></span>
+						<span>View Profile</span>
+					</a>
+				</li>
+				<li>
+					<a href="../index.html">
+						<span ><i class="fa fa-power-off"></i></span>
+						<span>Logout</span>
+					</a>
+				</li>
+				
+			</ul>
+		</nav>
+	</div>
+	
+		<div class="main-content">
+			<div class="title">
+				home / view profile
+			</div>
+			
+			<div class="main">
+				<!-- CREATE POLITICAL PARTY START -->
+				<div class="widget widget_table" style="overflow-x:auto;">
+					<div class="title heado">User Profile</div>
+					<div class="widget_stat widget_stat_table">
+					<div style="overflow-x:auto;">
+						<table style="overflow:scroll;">
+							<tr>
+								<td colspan="2"><img src="../images/Anonymous.JPG" alt="User Image" class="partylogo"></td>
+								
+							</tr>
+
+							<tr>
+								<td>Name</td>
+								<td>Kikelomo Folagbade</td>
+							</tr>
+						
+							<tr>
+								<td>Email</td>
+								<td>samabos007@gmail.com</td>
+							</tr>
+							<tr>
+								<td>Phone</td>
+								<td>07036463311</td>
+							</tr>
+							<tr>
+								<td>Joined On</td>
+								<td>20 - 01 - 2019</td>
+							</tr>
+							
+						</table>
+						</div>
+						
+					</div>
+					
+				</div>
+				<!-- END POLITICAL PARTY -->
+			</div>
+			
+			<div class="main votesize" >
+				<div class="widget">
+					<div class="title heado">Vote Count</div>
+					<div class="widget_stat">
+						<div class="widget_stat1">
+						<i class="fa  fa-check-circle-o"></i>
+						</div>
+						<div class="widget_stat2">
+						3
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+		
+			<div class="main">
+				<!-- CREATE POLITICAL PARTY START -->
+				<div class="widget widget_table" style="overflow-x:auto;">
+					<div class="title heado">Vote History</div>
+					<div class="widget_stat widget_stat_table">
+					<div class="overflo">
+						<table>
+							<tr>
+								<th>id</th>
+								<th>Voted for</th>
+								<th>Party</th>
+								<th>Office</th>
+								<th>Date</th>
+								
+							</tr>
+
+							<tr >
+								<td>1</td>
+								<td>Wale Ojo</td>
+								<td>PDP</td>
+								<td>National Assembly Member</td>
+								<td>23-01-2019</td>
+							</tr>
+						
+							<tr>
+								<td>2</td>
+								<td>Tola Odeyemi</td>
+								<td>PDP</td>
+								<td>Legislative Council Member</td>
+								<td>23-01-2019</td>
+							</tr>
+							
+							<tr >
+								<td>3</td>
+								<td>Goke Talabi</td>
+								<td>PDP</td>
+								<td>Local Government Chairman</td>
+								<td>23-01-2019</td>
+							</tr>
+							
+							
+						</table>
+						<button class="btn btnmore">View More</button>
+						</div>
+						
+					</div>
+					
+				</div>
+				<!-- END POLITICAL PARTY -->
+			</div>
+			
+			
+		</div>
+	
+	<footer>
+		&copy; 2019 Politico by Abosede Samson
+	</footer>
+	
+	<script src="../js/script.js"></script>
+</body>
+</html>

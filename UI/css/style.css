@@ -68,6 +68,10 @@ form{
     border-radius:10px;
 }
 
+.dd{
+	border:none;
+}
+
 form input{
     margin:10px;
     border-radius:5px;
@@ -159,7 +163,7 @@ p{
 	width: 100%;
 	height: auto;
 	z-index:-1;
-	opacity: 0.7;
+	/*opacity: 0;*/
 	color:black;
 }
 
@@ -280,6 +284,8 @@ p{
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
+  backdrop: static;
+  keyboard: false;
 }
 
 .modal-window:target {
@@ -291,7 +297,7 @@ p{
   width: 500px;
   position: relative;
   margin: 10% auto;
-  padding: 2rem;
+  padding: 1rem;
   background: #fff;
   color: #444;
   text-align:center;
@@ -319,7 +325,7 @@ p{
 
 .modal-window h1 {
   font-size: 150%;
-  margin: 0 0 15px;
+  margin: 0 0 10px;
 }
 
 .form-modal{
@@ -363,8 +369,8 @@ p{
 .section-title, .section-text {
   position: relative;
   margin-bottom: 15px;
-  background-color:black;
-  color:white;
+  background-color:white;
+  color:black;
   border-radius:7px;
   padding:5px;
 }
@@ -447,4 +453,51 @@ p{
     font-size: 11px;
     bottom: -20px;
   }
+}
+
+.inline{
+	display: inline-block;
+}
+
+.footercolor{
+	background-color:#EFBFA8;
+	font-size: 15px;
+}
+
+.headline_intro{
+	width:100%; 
+	display:flex; 
+	margin-top:50px; 
+	flex-wrap:wrap; 
+	justify-content: center; 
+	text-align:center;
+}
+
+.mt{
+	margin-top:20px;
+}
+
+.modaloverflow{
+	text-align:center;
+	overflow:scroll;
+}
+
+.modaloverflow2{
+	overflow:scroll;
+}
+
+.fp{
+	font-size:15px
+}
+
+.footer_align{
+	color: gray;
+	padding-left: 15px;
+	cursor: pointer;
+}
+
+.footer_align a{
+	color: gray;
+	padding-left: 15px;
+	cursor: pointer;
 }
