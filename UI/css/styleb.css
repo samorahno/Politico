@@ -404,3 +404,15 @@ button {
 	padding: 10px;
 	width: 100%;
 }
+
+.btn2 {
+
+	background: #333;
+	color: #fff;
+	text-decoration: none;
+	padding: 2px;
+	border: 1px solid #666;
+	margin: 0;
+	width: 70px;
+	border-radius:7px;
+}
