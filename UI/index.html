@@ -18,7 +18,7 @@
 
         <h1 class="white">Welcome to Politico</h1>
         <p class="white">................your vote is your right</p>
-        <a href="#open-modal" class="btn2">Login</a> <a href="#open-modal2" class="btn2">Sign Up</a>
+        <a href="#" class="btn2" id="myBtn">Login</a> <a href="#" class="btn2" id="myBtn2">Sign Up</a>
 
         <div class="headline_intro"> <span>
                 <center><b>About Politico</b></center> <br />
@@ -28,8 +28,7 @@
             </span>
         </div>
     </div>
-
-
+    
     <div class="container8">
         <section class="step-indicator8">
             <div class="step8 step1">
@@ -85,7 +84,7 @@
         </div>
         <div class="column step">
             <p>
-                Politico | by Abosede Samson &copy; 2019 <span class="footer_align"><a href="#open-modal4" title="login as admin">Admin</a></span>
+                Politico | by Abosede Samson &copy; 2019 <span class="footer_align"><a href="#" id="myBtn4" title="login as admin">Admin</a></span>
             </p>
             <p>
 
@@ -93,104 +92,107 @@
         </div>
     </footer>
 
+    <!--Modal 01 Start-->
+    <div id="myModal" class="modal">
 
-</body>
-
-<!-- Modal 1-->
-<div id="open-modal" class="modal-window modaloverflow">
-    <div>
-
-        <div>
-            <a href="#modal-close" title="Close" class="modal-close"><b>X</b></a>
-            <form action="views/userdashboard.html" class="form-modal dd">
-                <h1>Login</h1>
-                <div class="input-group">
-
-                 
-                    <input type="text" name="fname" placeholder="Email or Phone Number" required>
-
-                </div>
-                <div class="input-group">
-                    
-                    <input type="password" name="lname" placeholder="Password" required>
-                </div>
-
-                <div class="input-group">
-                    <button type="submit" name="submit" class="btn">Login</button>
-                    <a href="#open-modal3">
-                        <p class="fp">forgot password?</p>
-                    </a>
-                </div>
-
-            </form>
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>
+              <form action="views/userdashboard.html" class="form-modal dd">
+                  <h1>Login</h1>
+                  <div class="input-group">
+      
+                   
+                      <input type="text" name="fname" placeholder="Email or Phone Number" required>
+      
+                  </div>
+                  <div class="input-group">
+                      
+                      <input type="password" name="lname" placeholder="Password" required>
+                  </div>
+      
+                  <div class="input-group">
+                      <button type="submit" name="submit" class="btn">Login</button>
+                      <a href="#" id="myBtn3"> 
+                          <p class="fp">forgot password?</p>
+                      </a>
+                  </div>
+      
+              </form>
+          </p>
         </div>
-    </div>
-</div>
-<!-- /Modal 1-->
+      
+      </div>
+    <!--Modal 01 End-->
 
-<!-- Modal 2-->
-<div id="open-modal2" class="modal-window modaloverflow2">
-    <div>
-        <a href="#modal-close2" title="Close" class="modal-close"><b>X</b></a>
-        <h1>Signup</h1>
-        <form action="views/userdashboard.html" class="form-modal dd">
-            <div class="input-group">
+    <!--Modal 02 Start-->
+    <div id="myModal2" class="modal">
 
-                <input type="text" name="fullname" placeholder="First Name" required>
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>
+            <form action="views/userdashboard.html" class="form-modal dd">
+                <h1>Signup</h1>
+                <div class="input-group">
+    
+                    <input type="text" name="fullname" placeholder="First Name" required>
+    
+                </div>
+                <div class="input-group">
+    
+                    <input type="text" name="fullname" placeholder="Last Name" required>
+    
+                </div>
+                <div class="input-group">
+    
+                    <input type="text" name="fullname" placeholder="Other Name" required>
+    
+                </div>
+                <div class="input-group">
+    
+                    <input type="email" name="email" placeholder="E-mail" required>
+                </div>
+                <div class="input-group">
+    
+                    <input type="text" name="pnumber" placeholder="Phone Number" required>
+                </div>
+                <div class="input-group">
+    
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="input-group">
+    
+                    <input type="password" name="password_confirm" placeholder="Confirm Password" required>
+                </div>
+                <div class="input-group">
+                    <select name="logintype">
+                        <option value="">Register as ?</option>
+                        <option value="politician">Politician</option>
+                        <option value="participant">Participant</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Passport</label>
+                    <input type="file" name="img1" accept="image/gif, image/png, image/jpeg" placeholder="select passport">
+                </div>
+                <div class="input-group">
+                    <button type="submit" name="submit" class="btn">Register</button>
+                </div>
+    
+            </form>
+          </p>
+        </div>
+      
+      </div>
 
-            </div>
-            <div class="input-group">
+    <!--Modal 02 End-->
 
-                <input type="text" name="fullname" placeholder="Last Name" required>
+    <!--Modal 03 Start-->
+    <div id="myModal3" class="modal">
 
-            </div>
-            <div class="input-group">
-
-                <input type="text" name="fullname" placeholder="Other Name" required>
-
-            </div>
-            <div class="input-group">
-
-                <input type="email" name="email" placeholder="E-mail" required>
-            </div>
-            <div class="input-group">
-
-                <input type="text" name="pnumber" placeholder="Phone Number" required>
-            </div>
-            <div class="input-group">
-
-                <input type="password" name="password" placeholder="Password" required>
-            </div>
-            <div class="input-group">
-
-                <input type="password" name="password_confirm" placeholder="Confirm Password" required>
-            </div>
-            <div class="input-group">
-                <select name="logintype">
-                    <option value="">Register as ?</option>
-                    <option value="politician">Politician</option>
-                    <option value="participant">Participant</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label>Passport</label>
-                <input type="file" name="img1" accept="image/gif, image/png, image/jpeg" placeholder="select passport">
-            </div>
-            <div class="input-group">
-                <button type="submit" name="submit" class="btn">Register</button>
-            </div>
-
-        </form>
-    </div>
-</div>
-<!-- /Modal 2-->
-
-<!-- Modal 3-->
-<div id="open-modal3" class="modal-window modaloverflow">
-    <div>
-
-        <div>
-            <a href="#modal-close" title="Close" class="modal-close"><b>X</b></a>
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>
             <form action="views/dashboard.html" class="form-modal dd">
                 <h1>Reset Password</h1>
                 <div class="input-group">
@@ -201,17 +203,17 @@
                 </div>
 
             </form>
+          </p>
         </div>
-    </div>
-</div>
-<!-- /Modal 3-->
+      
+      </div>
+    <!--Modal 03 End-->
+    <!--Modal 04 Start-->
+    <div id="myModal4" class="modal">
 
-<!-- Modal 4-->
-<div id="open-modal4" class="modal-window modaloverflow">
-    <div>
-
-        <div>
-            <a href="#modal-close" title="Close" class="modal-close"><b>X</b></a>
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>
             <form action="views/dashboard.html" class="form-modal dd">
                 <h1>Login</h1>
                 <div class="input-group">
@@ -223,15 +225,18 @@
 
                 <div class="input-group">
                     <button type="submit" name="submit" class="btn">Login</button>
-                    <a href="#open-modal3">
+                    <a href="#" id="myBtn3">
                         <p class="fp">forgot password?</p>
                     </a>
                 </div>
 
             </form>
+          </p>
         </div>
-    </div>
-</div>
-<!-- /Modal 1-->
+      
+      </div>
+    <!--Modal 04 End-->
+    <script src="js/script.js"></script>
+</body>
 
 </html>
