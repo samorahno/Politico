@@ -17,7 +17,7 @@
 	<div class="side-nav visible" id="togle_nav">
 		<nav>
 			<ul>
-				<li >
+				<li>
 					<a href="dashboard.html">
 						<span ><i class="fa fa-home fa-fw"></i></span>
 						<span>Home</span>
@@ -29,7 +29,7 @@
 						<span>Political Party</span>
 					</a>
 				</li>
-				<li class="active"> 
+				<li> 
 					<a href="admin_office.html">
 						<span ><i class="fa fa-compress"></i></span>
 						<span>Political Office</span>
@@ -42,7 +42,7 @@
 					</a>
 				</li>
 				
-				<li> 
+				<li class="active"> 
 					<a href="vote_result.html">
 						<span ><i class="fa fa-envelope"></i></span>
 						<span>Vote Result</span>
@@ -68,96 +68,69 @@
 	
 		<div class="main-content">
 			<div class="title">
-				home / admin_office
+				home / vote result
 			</div>
 			
-			<div class="main">
-				
-				<!-- CREATE POLITICAL PARTY START -->
-				<div class="widget widget_table" style="overflow-x:auto;">
-					<div class="title heado">Create New Political Office</div>
-					<div class="widget_stat widget_stat_table">
-						<div style="overflow-x:auto;">
-							<form action="#" method="GET">
-							 
-							 <div class="input-group">
-								   
-								 <label>Office Name</label>
-								 <input type="text" name="officename" placeholder="Office Name">								 
-							 </div>
-							<div class="input-group">
-								<label>Office Type</label>
-								<select id="types" name="type">
-								  <option value="">Select office type</option>
-								  <option value="federal">Federal Government</option>
-								  <option value="legislative">Legislative Government</option>
-								  <option value="state">State Government</option>
-								  <option value="local">Local government</option>
-								</select>
-							</div>
-							
-							<div class="input-group">
-									<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<button type="submit" name="submit" class="btn">Create Office</button>
-							</div>
-
-						</form>
-						</div>
-					</div>
-				</div>
-				<!-- END POLITICAL PARTY -->
-				
-				
-			</div>
+			
 		
 			<div class="main">
 				<!-- CREATE POLITICAL PARTY START -->
 				<div class="widget widget_table" style="overflow-x:auto;">
-					<div class="title heado">Political Parties List</div>
+					<div class="title heado">Vote Results</div>
 					<div class="widget_stat widget_stat_table">
 					<div style="overflow-x:auto;">
 						<table style="overflow:scroll;">
 						<thead>
 							<tr>
 								<th>Id</th>
-								<th>Name</th>
-								<th>Type</th>
+								<th>Office</th>
+								<th>Candidate Result</th>
 								<th>Date Created</th>
-								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td><a href="#">1</a></td>
 								<td>National Assembly Member</td>
-								<td>Federal</td>
-								<td>29-01-2019</td>
 								<td>
-									<span><a href="editoffice.html" title="Edit Office"><i class="fa fa-pencil-square"></i></a></span> | 
-									<span><a href="#" title="Delete Office" onclick = "return confirm ('Are you sure you want to delete this office?');"><i class="fa fa-trash"></i></a></span>
+									<ul class="voteresult">
+										<li>Wale Ojo - 44</li>
+										<li>Ahmed Mark - 33</li>
+										<li>Bimbo Ali - 12</li>
+										<li>Tolu Oni - 41</li>
+									</ul>
+									
 								</td>
+								<td>29-01-2019</td>
 							</tr>
 							<tr>
 								<td><a href="#">2</a></td>
 								<td>Legislative Council Member</td>
-								<td>Legislative</td>
-								<td>19-01-2019</td>
 								<td>
-									<span><a href="editoffice.html" title="Edit Office"><i class="fa fa-pencil-square"></i></a></span> | 
-									<span><a href="#" title="Delete Office" onclick = "return confirm ('Are you sure you want to delete this office?');"><i class="fa fa-trash"></i></a></span>
+									<ul class="voteresult">
+										<li>Tola Odeyemi - 24</li>
+										<li>Tina Odili - 37</li>
+										
+									</ul>
+									
 								</td>
+								<td>29-01-2019</td>
 							</tr>
+							
 							<tr>
 								<td><a href="#">3</a></td>
 								<td>Local Government Chairman</td>
-								<td>Local Government</td>
-								<td>22-01-2019</td>
 								<td>
-									<span><a href="editoffice.html" title="Edit Office"><i class="fa fa-pencil-square"></i></a></span> | 
-									<span><a href="#" title="Delete Office" onclick = "return confirm ('Are you sure you want to delete this office?');"><i class="fa fa-trash"></i></a></span>
+									<ul class="voteresult">
+										<li>Goke Talabi - 24</li>
+										<li>Tolu Oni - 37</li>
+										<li>Ale Niyi - 31</li>
+									</ul>
+									
 								</td>
+								<td>29-01-2019</td>
 							</tr>
-							
+
 						</tbody>
 						</table>
 						<button class="btn btnmore">View More</button>
