@@ -8,9 +8,10 @@ const router = express.Router();
 const {validateCreateParty} = ValidatorMware;
 
 
-const {createParty, viewPartyById} = PartiesController;
+const {createParty, viewPartyById, getAllParties} = PartiesController;
 
 router.post('/parties/', validateCreateParty, createParty);
 router.get('/party/:partyid', viewPartyById);
+router.get('/parties/', getAllParties);
 
 export default router;
