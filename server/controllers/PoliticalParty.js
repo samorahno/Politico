@@ -19,14 +19,23 @@ class PartiesController {
         res.status(201).json({
             status: 201,
             message: "Party Successfully Created",
-            data: [{
-                    "id": party.id,
-                    "name": party.name,
-                    "hqAddress": party.hqAdress,
-                    "Alias": party.alias
-                }]
-
+            data: [party],
         })
+    }
+
+    static viewPartyById(req, res){
+        const {partyid}  = req.params;
+        const party = politicalParties.find(p => p.id === parseInt(partyid));
+        if(!party){
+            return res.status(404).send({
+                status: 404,
+                message: 'The record with the given id was not found',
+            });
+        }
+        return res.status(200).json({
+            status: 200,
+            data: [party]
+        });
     }
 
 }
