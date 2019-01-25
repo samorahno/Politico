@@ -6,7 +6,7 @@ export default class ValidatorMware {
     static validateCreateParty(req, res, next) {
         const { name, alias, hqAddress, logoUrl } = req.body;
 
-        if (!validateString(name)) {
+        if (!name || !validateString(name)) {
             return res.status(400).send({
                 status: 400,
                 error: 'enter name of the party',
@@ -23,7 +23,7 @@ export default class ValidatorMware {
         }
 
 
-        if (!validateAddress(hqAddress)) {
+        if (!hqAddress || !validateAddress(hqAddress)) {
             return res.status(400).send({
                 status: 400,
                 error: 'enter a valid address',
