@@ -38,6 +38,13 @@ class PartiesController {
         });
     }
 
+static getAllParties(req, res){
+        res.json({
+            status: 200,
+            data: politicalParties
+        });
+    }
+
 }
 
 export default PartiesController;
