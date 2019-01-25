@@ -29,7 +29,7 @@ class PartiesController {
         if (!party) {
             return res.status(404).send({
                 status: 404,
-                message: 'The record with the given id was not found',
+                error: 'The record with the given id was not found',
             });
         }
         return res.status(200).json({
