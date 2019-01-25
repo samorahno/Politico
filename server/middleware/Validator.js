@@ -1,16 +1,24 @@
+import Helper from './Helper';
+
+let {checkString, checkStringLength, checkRegex} = Helper;
 class Validator{
     static validateString(string){
-        if(!string || string === undefined || string.toString().trim() === '' || typeof string !== 'string') return false;
-        if(string.lenght < 3 || string.lenght > 500) return false;
-        const stringAllowed = /^[a-zA-Z-'\s\d]+$/;
-        if(!string.match(stringAllowed)) return false;
-        return true;
+        if(string){
+            if(checkString(string)) return false;
+            if(checkStringLength(string)) return false;
+            if(checkRegex(string)) return false;
+            return true;
+        }
+        return false;
     }
 
     static validateAddress(string){
-        if(!string || string === undefined || string.toString().trim() === '' || typeof string !== 'string') return false;
-        if(string.lenght < 3 || string.lenght > 500) return false;
-        return true;
+        if(string){
+            if(checkString(string)) return false;
+            if(checkStringLength(string)) return false;
+            return true;
+        }
+        return false;
     }
 
 }

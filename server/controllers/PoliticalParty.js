@@ -1,9 +1,10 @@
 import politicalParties from '../models/politicalParties';
 
+const dateObj = new Date();
 class PartiesController {
-
+    
     static createParty(req, res){
-        const dateObj = new Date();
+        
         const party = {
             id: politicalParties.length + 1,
             name: req.body.name,
@@ -15,11 +16,14 @@ class PartiesController {
 
         politicalParties.push(party);
       
-        res.json({
-            status: 200,
+        res.status(201).json({
+            status: 201,
+            message: "Party Successfully Created",
             data: [{
                     "id": party.id,
-                    "name": party.name
+                    "name": party.name,
+                    "hqAddress": party.hqAdress,
+                    "Alias": party.alias
                 }]
 
         })
