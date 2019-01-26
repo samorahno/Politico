@@ -5,10 +5,15 @@ import PartiesController from '../controllers/PoliticalParty';
 
 const router = express.Router();
 
-const {validateCreateParty} = ValidatorMware;
+const { validateCreateParty } = ValidatorMware;
 
 
-const {createParty, viewPartyById, getAllParties, deletePartyById} = PartiesController;
+const {
+  createParty,
+  viewPartyById,
+  getAllParties,
+  deletePartyById,
+} = PartiesController;
 
 router.post('/parties/', validateCreateParty, createParty);
 router.get('/party/:partyid', viewPartyById);
