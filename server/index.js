@@ -20,7 +20,7 @@ app.get('*', (req, res) => {
     return res.status(404).json({'message': 'Page not found. Please visit /api/v1'});
   })
 
-const port = 9000;
+const port = 3000;
 app.listen(process.env.port || `${port}`, () => console.log(`server running at localhost ${port}`));
 
 export default app;

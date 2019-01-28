@@ -67,6 +67,37 @@ class PartiesController {
       data: [findParty],
     });
   }
+
+  static editPartyName(req, res) {
+    const { partyid, name } = req.params;
+    if (name === 'name') {
+      const party = politicalParties.find(x => x.id === parseInt(partyid));
+      if (!party) {
+        return res.status(404).send({
+          status: 404,
+          message: 'The record with the given id was not found',
+        });
+      }
+
+      const dateObj = new Date();
+      party.name = req.body.name;
+      party.editedon = `${dateObj.getFullYear()} - ${(dateObj.getMonth() + 1)} - ${dateObj.getDate()}`;
+
+      return res.json({
+        status: 200,
+        message: 'Party Edit Successful',
+        data: [{
+          id: party.id,
+          name: party.name,
+          editedon: party.editedon,
+        }],
+      });
+    }
+    return res.status(404).json({
+      status: 404,
+      message: 'Page not found',
+    });
+  }
 }
 
 export default PartiesController;
