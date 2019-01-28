@@ -13,6 +13,7 @@ app.get('/api/v1', (req, res) => res.send({
   message: 'Welcome to Politico',
 }));
 
+// middleware
 app.use('/api/v1', politicalPartyRoute);
 app.use('/api/v1', politicalOfficeRoute);
 
