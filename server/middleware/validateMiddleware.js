@@ -32,4 +32,16 @@ export default class ValidatorMware {
 
     return next();
   }
+
+  static validateEditParty(req, res, next) {
+    const { name } = req.body;
+    if (!name || !validateString(name)) {
+      return res.status(400).send({
+        status: 400,
+        error: 'Enter new name of the party',
+      });
+    }
+
+    return next();
+  }
 }
