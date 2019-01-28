@@ -26,6 +26,23 @@ class OfficeController {
       data: politicalOffices,
     });
   }
+
+  static viewOfficeById(req, res) {
+    const { officeid } = req.params;
+    const office = politicalOffices.find(x => x.id === parseInt(officeid));
+
+    if (!office) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Office not found',
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      data: [office],
+    });
+  }
 }
 
 export default OfficeController;
