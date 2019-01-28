@@ -72,6 +72,8 @@ export default class ValidatorMware {
           error: 'Enter office type (example: Federal, Legislative, State or Local Government)',
         });
     }
+    return next();
+  }
 
   static validateEditParty(req, res, next) {
     const { name } = req.body;
@@ -81,8 +83,6 @@ export default class ValidatorMware {
         error: 'Enter new name of the party',
       });
     }
-
     return next();
-
   }
 }

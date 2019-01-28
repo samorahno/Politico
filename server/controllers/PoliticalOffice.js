@@ -19,6 +19,13 @@ class OfficeController {
       data: [office],
     });
   }
+
+  static getAllOffices(req, res) {
+    res.json({
+      status: 200,
+      data: politicalOffices,
+    });
+  }
 }
 
 export default OfficeController;
