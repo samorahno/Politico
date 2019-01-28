@@ -6,9 +6,10 @@ const router = express.Router();
 
 const { validateCreateOffice } = validatorMiddleWare;
 
-const { createOffice, getAllOffices } = OfficeController;
+const { createOffice, getAllOffices, viewOfficeById } = OfficeController;
 
 router.post('/offices/', validateCreateOffice, createOffice);
 router.get('/offices/', getAllOffices);
+router.get('/offices/:officeid/', viewOfficeById);
 
 export default router;
