@@ -33,6 +33,46 @@ export default class ValidatorMware {
     return next();
   }
 
+  static validateCreateOffice(req, res, next) {
+    const { name, type } = req.body;
+    if (!name || !validateString(name)) {
+      return res.status(400).send({
+        status: 400,
+        error: 'Enter office name',
+      });
+    }
+    if (!type) {
+      return res.status(400).send({
+        status: 400,
+        error: 'Enter office type',
+      });
+    }
+    const typeVal = type.toUpperCase();
+
+    switch (typeVal) {
+      case 'FEDERAL':
+        return next();
+        break;
+
+      case 'LEGISLATIVE':
+        return next();
+        break;
+
+      case 'STATE':
+        return next();
+        break;
+
+      case 'LOCAL GOVERNMENT':
+        return next();
+        break;
+
+      default:
+        return res.status(400).send({
+          status: 400,
+          error: 'Enter office type (example: Federal, Legislative, State or Local Government)',
+        });
+    }
+
   static validateEditParty(req, res, next) {
     const { name } = req.body;
     if (!name || !validateString(name)) {
@@ -43,5 +83,6 @@ export default class ValidatorMware {
     }
 
     return next();
+
   }
 }

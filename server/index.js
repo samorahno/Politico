@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import 'babel-polyfill';
 import politicalPartyRoute from './routes/politicalParty';
+import politicalOfficeRoute from './routes/politicalOffice';
 
 dotenv.config();
 const app = express();
@@ -13,6 +14,7 @@ app.get('/api/v1', (req, res) => res.send({
 }));
 
 app.use('/api/v1',politicalPartyRoute);
+app.use('/api/v1', politicalOfficeRoute);
 
 app.get('*', (req, res) => {
     return res.status(404).json({'message': 'Page not found. Please visit /api/v1'});
