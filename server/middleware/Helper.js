@@ -5,7 +5,7 @@ class Helper {
   }
 
   static checkRegex(string) {
-    const stringAllowed = /^[a-zA-Z-'\s\d]+$/;
+    const stringAllowed = /^[a-zA-Z0-9'\s\d]+$/;
     if (!string.match(stringAllowed)) return false;
   }
 }

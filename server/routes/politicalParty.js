@@ -17,7 +17,7 @@ const {
 } = PartiesController;
 
 router.post('/parties/', validateCreateParty, createParty);
-router.get('/party/:partyid', viewPartyById);
+router.get('/parties/:partyid', viewPartyById);
 router.get('/parties/', getAllParties);
 router.delete('/parties/:partyid', deletePartyById);
 router.patch('/parties/:partyid/:name', validateEditParty, editPartyName);
