@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.get('/api/v1', (req, res) => res.send({
+app.get('/', (req, res) => res.send({
   status: 200,
   message: 'Welcome to Politico',
 }));
