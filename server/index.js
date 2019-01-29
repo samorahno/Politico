@@ -21,6 +21,6 @@ app.get('*', (req, res) => res.status(404).json({ message: 'Page not found. Plea
 
 const port = 3000;
 // eslint-disable-next-line no-console
-app.listen(process.env.port || `${port}`, () => console.log(`server running at localhost ${port}`));
+app.listen(process.env.PORT || `${port}`, () => console.log(`server running at localhost ${port}`));
 
 export default app;
