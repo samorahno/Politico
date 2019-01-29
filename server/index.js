@@ -17,7 +17,11 @@ app.get('/api/v1', (req, res) => res.send({
 app.use('/api/v1', politicalPartyRoute);
 app.use('/api/v1', politicalOfficeRoute);
 
-app.get('*', (req, res) => res.status(404).json({ message: 'Page not found. Please visit /api/v1' }));
+app.get('*', (req, res) => res.status(404).json(
+  {
+    message: 'Page not found. Please visit /api/v1',
+  },
+));
 
 const port = 3000;
 // eslint-disable-next-line no-console
