@@ -7,7 +7,12 @@
     "start": "node --require babel-register server/index.js",
     "dev": "nodemon --require babel-register server/index.js",
     "test": " nyc ---reporter=html --reporter=text mocha --timeout 10000 --exit --require babel-register server/test/*",
-    "coverage": "nyc report ---reporter=text-lcov | coveralls"
+    "coverage": "nyc report ---reporter=text-lcov | coveralls",
+    "heroku-postbuild": "npm run build",
+    "build": "babel server -d build"
+  },
+  "engines": {
+    "node": "10.13.0"
   },
   "repository": {
     "type": "git",
