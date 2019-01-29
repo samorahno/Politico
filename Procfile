@@ -1,1 +1,1 @@
-Web: build/index.js
+Web: npm run dev
