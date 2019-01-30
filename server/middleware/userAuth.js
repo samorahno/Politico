@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 const userAuthHelper = {
-	
+
   hashPassword(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
   },
@@ -34,8 +34,7 @@ const userAuthHelper = {
     const token = jwt.sign({
       userId: id,
     },
-      process.env.jwt_privateKey, { expiresIn: '7d' },
-    );
+    process.env.jwt_privateKey, { expiresIn: '7d' });
     return token;
   },
 

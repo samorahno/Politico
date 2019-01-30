@@ -4,6 +4,7 @@ import uuid from 'uuid';
 import dba from '../db/index';
 import userAuthHelper from '../middleware/userAuth';
 
+
 /**
  * User Authentication Controller
  */
@@ -46,7 +47,14 @@ class UserAuthController {
           status: 201,
           data: [{
             token,
-            user: rows[0],
+            user: {
+              id: rows[0].id,
+              firstname: rows[0].firstname,
+              othername: rows[0].othername,
+              lastname: rows[0].lastname,
+              email: rows[0].email,
+              phone: rows[0].phone,
+            },
           }],
         });
       } catch (error) {
@@ -54,6 +62,40 @@ class UserAuthController {
           return res.status(400).send({ status: 400, message: 'Email cannot be used at this time' });
         }
           return res.json({ status: 400, error });
+      }
+    }
+
+    static async login(req, res) {
+      const text = 'SELECT * FROM users WHERE email = $1';
+      try {
+        const { rows } = await dba.query(text, [req.body.email]);
+        if (!rows[0]) {
+          return res.status(401).send({ status: 401, message: 'Invalid Email / Password' });
+        }
+        if (!userAuthHelper.comparePassword(rows[0].password, req.body.password)) {
+          return res.status(401).send({ status: 401, message: 'The credentials you provided Are incorrect' });
+        }
+         const token = userAuthHelper.generateToken(rows[0].id);
+        return res.status(200).header('x-auth-token', token).json({
+          status: 200,
+          data: [{
+            message: `Login Successful, Welcome ${rows[0].firstname}`,
+            token,
+            user: {
+              id: rows[0].id,
+              firstname: rows[0].firstname,
+              lastname: rows[0].lastname,
+              email: rows[0].email,
+              phone: rows[0].phone,
+              isadmin: rows[0].isadmin,
+            },
+          }],
+        });
+      } catch (error) {
+        return res.status(400).json({
+          error: 400,
+          message: 'An error occured. Please check input',
+        });
       }
     }
 }
