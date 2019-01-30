@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import 'babel-polyfill';
 import politicalPartyRoute from './routes/politicalParty';
 import politicalOfficeRoute from './routes/politicalOffice';
+import userAuthRoute from './routes/userAuth';
 
 dotenv.config();
 const app = express();
@@ -16,6 +17,7 @@ app.get('/api/v1', (req, res) => res.send({
 // middleware
 app.use('/api/v1', politicalPartyRoute);
 app.use('/api/v1', politicalOfficeRoute);
+app.use('/api/v1/auth', userAuthRoute);
 
 app.get('*', (req, res) => res.status(404).json(
   {
