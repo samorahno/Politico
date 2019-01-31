@@ -367,6 +367,7 @@ describe('patch /v1/api/partyid/name', () => {
   });
 });
 
+// party
 describe('patch /v1/parties/partyid/name', () => {
   it('should return 400 error if the name field is not specified', (done) => {
     chai.request(app)
