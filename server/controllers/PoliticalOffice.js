@@ -64,5 +64,4 @@ class OfficeController {
     }
   }
 }
-
 export default OfficeController;

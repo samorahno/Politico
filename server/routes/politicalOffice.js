@@ -10,7 +10,11 @@ const { verifyIsAdmin } = VerifyIsAdmin;
 
 const { validateCreateOffice } = validatorMiddleWare;
 
-const { createOffice, getAllOffices, viewOfficeById } = OfficeController;
+const {
+  createOffice,
+  getAllOffices,
+  viewOfficeById,
+} = OfficeController;
 
 router.post('/offices/', verifyToken, verifyIsAdmin, validateCreateOffice, createOffice);
 router.get('/offices/', verifyToken, getAllOffices);

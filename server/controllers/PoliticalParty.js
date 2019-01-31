@@ -76,8 +76,8 @@ class PartiesController {
           message: 'Party not found',
         });
       }
-      return res.status(202).json({
-        status: 202,
+      return res.status(200).json({
+        status: 200,
         data: [{
           id: rows[0].id,
           message: 'Party Delete Successful',
