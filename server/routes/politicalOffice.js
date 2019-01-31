@@ -14,10 +14,12 @@ const {
   createOffice,
   getAllOffices,
   viewOfficeById,
+  createCandidate,
 } = OfficeController;
 
 router.post('/offices/', verifyToken, verifyIsAdmin, validateCreateOffice, createOffice);
 router.get('/offices/', verifyToken, getAllOffices);
 router.get('/offices/:officeid/', verifyToken, viewOfficeById);
+router.post('/office/:userid/:register/', verifyToken, verifyIsAdmin, createCandidate);
 
 export default router;

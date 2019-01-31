@@ -63,5 +63,48 @@ class OfficeController {
       });
     }
   }
+
+  static async createCandidate(req, res) {
+    const { userid, register } = req.params;
+    const { officeid, partyid } = req.body;
+    if (register === 'register') {
+      const textid_user = 'SELECT * FROM users WHERE id = $1';
+      const textid_office = 'SELECT * FROM politicaloffices WHERE id = $1';
+      const textid_party = 'SELECT * FROM politicalparties WHERE id = $1';
+
+      const createQuery = `INSERT INTO 
+      candidates(id, officeid, partyid, userid, created_date)
+      VALUES($1, $2, $3, $4, $5) returning *`;
+      try {
+        const rowsid = await dba.query(textid_user, [userid]);
+        const check_office = await dba.query(textid_office, [officeid]);
+        const check_party = await dba.query(textid_party, [partyid]);
+        if (rowsid && check_office && check_party) {
+          const values = [
+            uuid(),
+            officeid,
+            partyid,
+            userid,
+            moment(new Date()),
+          ];
+          const { rows } = await dba.query(createQuery, values);
+          return res.status(201).json({
+            status: 201,
+            message: 'Candidate Successfully Created',
+            data: [rows[0]],
+          });
+        }
+      } catch (error) {
+        return res.status(404).json({
+          status: 404,
+          message: 'User, office or party not found',
+        });
+      }
+    }
+    return res.status(404).json({
+      status: 404,
+      message: 'Page not found',
+    });
+  }
 }
 export default OfficeController;
