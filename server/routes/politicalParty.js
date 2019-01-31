@@ -21,8 +21,8 @@ const {
 } = PartiesController;
 
 router.post('/parties/', verifyToken, verifyIsAdmin, validateCreateParty, createParty);
-router.get('/parties/:partyid', verifyToken, viewPartyById);
-router.get('/parties/', verifyToken, getAllParties);
+router.get('/parties/:partyid', viewPartyById);
+router.get('/parties/', getAllParties);
 router.delete('/parties/:partyid', verifyToken, verifyIsAdmin, deletePartyById);
 router.patch('/parties/:partyid/:name', verifyToken, verifyIsAdmin, validateEditParty, editPartyName);
 

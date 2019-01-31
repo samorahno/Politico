@@ -45,6 +45,7 @@ class UserAuthController {
         const token = userAuthHelper.generateToken({ id, email, isadmin });
         return res.status(201).header('x-auth-token', token).json({
           status: 201,
+          message: 'User Successfully Created',
           data: [{
             token,
             user: {
