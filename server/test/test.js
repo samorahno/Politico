@@ -7,6 +7,30 @@ dotenv.config();
 
 chai.use(chaiHttp);
 const { expect } = chai;
+let userToken;
+let adminToken;
+
+describe('post /v1/api/parties', () => {
+  it('should login a user', (done) => {
+    chai.request(app)
+      .post('/api/v1/parties')
+      .send({
+        email: 'samabos007@gmail.com',
+        password: 'tolulope',
+      })
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(res).to.have.headers;
+        expect(res.body).to.have.property('status').eql(201);
+        expect(res.body).to.have.property('message').eql('Party Successfully Created');
+        expect(res).to.have.status(201);
+        expect(res).to.not.redirect;
+        expect(res.body).to.be.an('object');
+        done();
+      });
+  });
+});
+
 
 describe('GET \'', () => {
   it('It should return  welcome message', (done) => {

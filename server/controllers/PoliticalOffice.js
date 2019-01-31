@@ -1,48 +1,67 @@
-import politicalOffices from '../models/politicalOffices';
+import uuid from 'uuid';
+import moment from 'moment';
+import dba from '../db/index';
 
-const dateObj = new Date();
 
 class OfficeController {
-  static createOffice(req, res) {
-    const office = {
-      id: politicalOffices.length + 1,
-      name: req.body.name,
-      type: req.body.type,
-      dateCreated: `${dateObj.getFullYear()} - ${(dateObj.getMonth() + 1)} - ${dateObj.getDate()}`,
-    };
+  static async createOffice(req, res) {
+    const createQuery = `INSERT INTO 
+      politicaloffices(id, name, type, created_date, status)
+      VALUES($1, $2, $3, $4, $5) returning *`;
 
-    politicalOffices.push(office);
+    const values = [
+      uuid(),
+      req.body.name,
+      req.body.type,
+      moment(new Date()),
+      req.body.status || 'on',
+    ];
 
-    res.status(201).json({
-      status: 201,
-      message: 'Office Successfully Created',
-      data: [office],
-    });
+    try {
+      const { rows } = await dba.query(createQuery, values);
+      res.status(201).json({
+        status: 201,
+        message: 'Office Successfully Created',
+        data: [rows[0]],
+      });
+    } catch (error) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Error inserting record, please try again',
+      });
+    }
   }
 
-  static getAllOffices(req, res) {
-    res.json({
-      status: 200,
-      data: politicalOffices,
-    });
+  static async getAllOffices(req, res) {
+    try {
+      const result = await dba.query('SELECT * FROM politicaloffices');
+      return res.status(200).send({
+        status: 200,
+        data: result.rows,
+      });
+    } catch (error) {
+      return res.status(400).json({
+        status: 400,
+        error,
+      });
+    }
   }
 
-  static viewOfficeById(req, res) {
+  static async viewOfficeById(req, res) {
     const { officeid } = req.params;
-    const office = politicalOffices.find(x => x.id === parseInt(officeid));
-
-    if (!office) {
+    const text = 'SELECT * FROM politicaloffices WHERE id = $1';
+    try {
+      const { rows } = await dba.query(text, [officeid]);
+      return res.status(200).send({
+        status: 200,
+        data: [rows[0]],
+      });
+    } catch (error) {
       return res.status(404).json({
         status: 404,
         error: 'Office not found',
       });
     }
-
-    return res.status(200).json({
-      status: 200,
-      data: [office],
-    });
   }
 }
-
 export default OfficeController;
