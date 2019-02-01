@@ -4,6 +4,8 @@ import 'babel-polyfill';
 import politicalPartyRoute from './routes/politicalParty';
 import politicalOfficeRoute from './routes/politicalOffice';
 import userAuthRoute from './routes/userAuth';
+import VoteRoute from './routes/vote';
+import resultRoute from './routes/Result';
 
 dotenv.config();
 const app = express();
@@ -18,6 +20,8 @@ app.get('/api/v1', (req, res) => res.send({
 app.use('/api/v1', politicalPartyRoute);
 app.use('/api/v1', politicalOfficeRoute);
 app.use('/api/v1/auth', userAuthRoute);
+app.use('/api/v1', VoteRoute);
+app.use('/api/v1', resultRoute);
 
 app.get('*', (req, res) => res.status(404).json(
   {
