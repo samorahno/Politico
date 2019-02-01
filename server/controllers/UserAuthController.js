@@ -88,7 +88,6 @@ class UserAuthController {
               lastname: rows[0].lastname,
               email: rows[0].email,
               phone: rows[0].phone,
-              isadmin: rows[0].isadmin,
             },
           }],
         });
