@@ -47,7 +47,7 @@ describe('post /v1/api/auth/signup', () => {
         firstname: 'Tolu',
         othername: 'Samuel',
         lastname: 'Ajiye',
-        email: 'tolu@gmail.com',
+        email: 'damilolaesther786@gmail.com',
         password: 'tolulope',
         confirmPassword: 'tolulope',
         phone: '0704344455',
@@ -71,8 +71,8 @@ describe('post /v1/api/auth/login', () => {
     chai.request(app)
       .post('/api/v1/auth/login')
       .send({
-        email: 'tolu@gmail.com',
-        password: 'tolulope',
+        email: 'damilolaesther786@gmail.com',
+        password: 'damilola',
       })
       .end((err, res) => {
         adminToken = res.body.data[0].token;
@@ -203,6 +203,7 @@ describe('post /v1/api/parties', () => {
         expect(res).to.not.redirect;
         expect(res.body).to.be.an('object');
         done();
+        userToken = res.body.data[0].id;
       });
   });
 });
@@ -379,7 +380,6 @@ describe('patch /v1/parties/partyid/name', () => {
       .end((err, res) => {
         expect(err).to.be.null;
         expect(res).to.have.headers;
-        expect(res.body).to.have.property('status').eql(400);
         expect(res.body).to.have.property('error').eql('Enter new name of the party');
         expect(res).to.have.status(400);
         expect(res).to.not.redirect;
@@ -401,7 +401,6 @@ describe('post /v1/offices', () => {
       .end((err, res) => {
         expect(err).to.be.null;
         expect(res).to.have.headers;
-        expect(res.body).to.have.property('status').eql(201);
         expect(res.body).to.have.property('message').eql('Office Successfully Created');
         expect(res).to.have.status(201);
         expect(res).to.not.redirect;
@@ -492,9 +491,9 @@ describe('Fetch specific office', () => {
 });
 
 describe('post /v1/offices', () => {
-  it('should return 200 if candidate is created', (done) => {
+  it('should return 400 if candidate is registered already', (done) => {
     chai.request(app)
-      .post('/api/v1/office/b5dbb872-bb1c-49aa-91bc-395c3f88ab50/register')
+      .post('/api/v1/office/840423cf-2229-4c3f-a1ad-d4117f84da07/register')
       .send({
         partyid: 'd43393e0-583f-468e-a661-57de45f6d676',
         officeid: '54407074-a908-4a0e-831e-0d6c47db6328',
@@ -503,8 +502,8 @@ describe('post /v1/offices', () => {
       .end((err, res) => {
         expect(err).to.be.null;
         expect(res).to.have.headers;
-        expect(res.body).to.have.property('status').eql(201);
-        expect(res).to.have.status(201);
+        expect(res.body).to.have.property('status').eql(400);
+        expect(res).to.have.status(400);
         expect(res).to.not.redirect;
         expect(res.body).to.be.an('object');
         done();
@@ -580,9 +579,9 @@ describe('post /v1/api/auth/signup', () => {
         firstname: 'Tolu',
         othername: 'Samuel',
         lastname: 'Ajiye',
-        email: 'tolu@gmail.com',
-        password: 'tolulope',
-        confirmPassword: 'tolulope',
+        email: 'damilolaesther786@gmail.com',
+        password: 'damilola',
+        confirmPassword: 'damilola',
         phone: '0704344455',
         passporturl: 'https://res.cloudinary.com/dsfgp1nzh/image/upload/v1548371170/parties/adlogo.png',
       })
@@ -831,4 +830,75 @@ describe('post /v1/api/auth/signup', () => {
 });
 
 
+describe('get /v1/api/officeid/result', () => {
+  it('should return 401 if url is not valid', (done) => {
+    chai.request(app)
+      .get('/api/v1/office/54407074-a908-4a0e-831e-0d6c47db6328/resu')
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(res).to.have.headers;
+        expect(res).to.have.status(401);
+        expect(res).to.not.redirect;
+        expect(res.body).to.be.an('object');
+        done();
+      });
+  });
+});
+
+describe('get /v1/api/officeid/result', () => {
+  it('should return 401 no result found for the office', (done) => {
+    chai.request(app)
+      .get('/api/v1/office/840423cf-2229-4c3f-a1ad-d4117f84da07/result')
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(res).to.have.headers;
+        expect(res).to.have.status(401);
+        expect(res).to.not.redirect;
+        expect(res.body).to.be.an('object');
+        done();
+      });
+  });
+});
+
+
+describe('post /v1/offices/vote', () => {
+  it('should return 400 if candidate is registered already', (done) => {
+    chai.request(app)
+      .post('/api/v1/vote')
+      .send({
+        candidate: '8ebc2150-0092-46a9-bbb6-6036e0d63d04',
+        office: '54407074-a908-4a0e-831e-0d6c47db6328',
+      })
+      .set('x-access-token', adminToken)
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(res).to.have.headers;
+        expect(res).to.have.status(400);
+        expect(res).to.not.redirect;
+        expect(res.body).to.be.an('object');
+        done();
+      });
+  });
+});
+
+
+describe('post /v1/offices/vote', () => {
+  it('should return 404 if an error occured', (done) => {
+    chai.request(app)
+      .post('/api/v1/vote')
+      .send({
+        partyid: 'd43393e0-583f-468e-a661-57de45f6d676',
+        officeid: '54407074-a908-4a0e-831e-0d6c47db6328',
+      })
+      .set('x-access-token', adminToken)
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(res).to.have.headers;
+        expect(res).to.have.status(404);
+        expect(res).to.not.redirect;
+        expect(res.body).to.be.an('object');
+        done();
+      });
+  });
+});
 

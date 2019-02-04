@@ -43,6 +43,8 @@ UI templates are hosted on Github pages [here](https://samorahno.github.io/Polit
 - [Eslint](https://eslint.org/) - Javascript linter.
 - [Airbnb](https://www.npmjs.com/package/eslint-config-airbnb) style [guide](https://github.com/airbnb/javascript) was followed.
 
+# API Docs
+[https://samson-politico.herokuapp.com/api-docs](https://samson-politico.herokuapp.com/api-docs)
 
 # API Information
 Heroku [https://samson-politico.herokuapp.com/api/v1/](https://samson-politico.herokuapp.com/api/v1/)

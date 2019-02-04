@@ -42,7 +42,7 @@ class UserAuthController {
       try {
         const { rows } = await dba.query(createQuery, values);
         const { id, email, isadmin } = rows[0];
-        const token = userAuthHelper.generateToken({ id, email, isadmin });
+        const token = userAuthHelper.generateToken(rows[0].id);
         return res.status(201).header('x-auth-token', token).json({
           status: 201,
           message: 'User Successfully Created',
@@ -60,7 +60,7 @@ class UserAuthController {
         });
       } catch (error) {
         if (error.routine === '_bt_check_unique') {
-          return res.status(400).send({ status: 400, message: 'Email cannot be used at this time' });
+          return res.status(400).json({ status: 400, message: 'Email cannot be used at this time' });
         }
           return res.json({ status: 400, error });
       }
@@ -94,7 +94,7 @@ class UserAuthController {
       } catch (error) {
         return res.status(400).json({
           error: 400,
-          message: 'An error occured. Please check input',
+          message: 'An error occured. Please try again',
         });
       }
     }
