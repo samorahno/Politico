@@ -1,0 +1,708 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Politico is an app that helps both the politicians and citizens. It helps citizens give mandates to politicians running for different offices",
+    "version": "1.0.0",
+    "title": "Politico",
+    "termsOfService": "",
+    "contact": {
+      "email": "samabos007@gmail.com"
+    }
+  },
+  "host": "samson-politico.herokuapp.com",
+  "basePath": "/api/v1",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/auth/signup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Create a new user account",
+        "description": "This endpoint registers a new user",
+        "operationId": "addPet",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Create a new user record",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "successful operation"
+          },
+          "401": {
+            "description": "Token is not provided"
+          },
+          "403": {
+            "description": "Access denied, you don't have the required credentials to access this route"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Login a user to the app",
+        "description": "Gives a user access to vote and perform other user operations",
+        "operationId": "findPetsByStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "order placed for purchasing the pet",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login Successful"
+          },
+          "400": {
+            "description": "An error occured"
+          },
+          "401": {
+            "description": "Invalid Email / Password"
+          }
+        }
+      }
+    },
+    "/parties/": {
+      "post": {
+        "tags": [
+          "Political Parties"
+        ],
+        "summary": "Creates a new political party",
+        "description": "",
+        "operationId": "parties",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "New Political Paty record",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateParty"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid Input"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Political Parties"
+        ],
+        "summary": "Lists all political parties",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successfully get all political parties",
+            "schema": {
+              "$ref": "#/definitions/parties"
+            }
+          },
+          "404": {
+            "description": "Party not found"
+          }
+        }
+      }
+    },
+    "/parties/{partyid}": {
+      "get": {
+        "tags": [
+          "Political Parties"
+        ],
+        "summary": "displays specific political party by id",
+        "description": "",
+        "operationId": "partyid",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "partyid",
+            "description": "ID of political party to display",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/parties"
+            }
+          },
+          "404": {
+            "description": "The record with the given id was not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Political Parties"
+        ],
+        "summary": "Delete political party by ID",
+        "description": "A valid uuid type of the party to delete must be supplied",
+        "operationId": "deleteParty",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "partyid",
+            "in": "path",
+            "description": "ID of the party that needs to be deleted",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Party Delete Successful"
+          },
+          "404": {
+            "description": "Party not found"
+          }
+        }
+      }
+    },
+    "/parties/{partyid}/name": {
+      "patch": {
+        "tags": [
+          "Political Parties"
+        ],
+        "summary": "displays specific political party by id",
+        "description": "",
+        "operationId": "name",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "partyid",
+            "description": "ID of political party to edit by name",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Edit",
+            "schema": {
+              "$ref": "#/definitions/PartyName"
+            }
+          },
+          "403": {
+            "description": "Access denied, you don't have the required credentials to access this route"
+          },
+          "404": {
+            "description": "The record with the given id was not found"
+          }
+        }
+      }
+    },
+    "/offices/": {
+      "post": {
+        "tags": [
+          "Political Offices"
+        ],
+        "summary": "Creates a new political office",
+        "description": "",
+        "operationId": "createoffice",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "New Political Office record",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CreateOffice"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Office created successfully"
+          },
+          "400": {
+            "description": "Enter office type (example: Federal, Legislative, State or Local Government)"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Political Offices"
+        ],
+        "summary": "Lists all political Offices",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "successfully get all political offices",
+            "schema": {
+              "$ref": "#/definitions/offices"
+            }
+          },
+          "404": {
+            "description": "Office not found"
+          }
+        }
+      }
+    },
+    "/office/{officeid}/": {
+      "get": {
+        "tags": [
+          "Political Offices"
+        ],
+        "summary": "displays specific political office by id",
+        "description": "",
+        "operationId": "officeid",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "officeid",
+            "description": "ID of political office to display",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/offices"
+            }
+          },
+          "404": {
+            "description": "The record with the given id was not found"
+          }
+        }
+      }
+    },
+    "/office/{userid}/register": {
+      "get": {
+        "tags": [
+          "Political Offices"
+        ],
+        "summary": "Registers a new candidate for a political office",
+        "description": "Add a new candidate, by including officeid and partyid",
+        "operationId": "createcandidate",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userid",
+            "description": "ID of political party to display",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Candidate Successfully Registered",
+            "schema": {
+              "$ref": "#/definitions/Candidate"
+            }
+          },
+          "404": {
+            "description": "The user with the given id was not found"
+          }
+        }
+      }
+    },
+    "/vote/": {
+      "post": {
+        "tags": [
+          "Vote"
+        ],
+        "summary": "Vote for an Office",
+        "description": "Users can vote for their preffered candidate for various political offices",
+        "operationId": "createvote",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "New Vote for an office",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Vote"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Vote registered successfully",
+            "schema": {
+              "$ref": "#/definitions/VoteModel"
+            }
+          },
+          "400": {
+            "description": "You have voted a candidate for this office"
+          }
+        }
+      }
+    },
+    "/office/{officeid}/result": {
+      "get": {
+        "tags": [
+          "Vote Result"
+        ],
+        "summary": "View vote result for a political office",
+        "description": "View vote result of various offices registered",
+        "operationId": "voteresult",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "officeid",
+            "description": "ID of political political office vote result to display",
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Vote Fethced Successfully",
+            "schema": {
+              "$ref": "#/definitions/VoteResult"
+            }
+          },
+          "404": {
+            "description": "No result found for this office"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "VoteResult": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "officeid": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "candidateid": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "result": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "VoteModel": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "officeid": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "candidateid": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "userid": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "created_date": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+    "Vote": {
+      "type": "object",
+      "properties": {
+        "candiate": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "office": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
+    "Candidate": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "partyid": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "userid": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "created_date": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+    "offices": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "created_date": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "modified_date": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+    "CreateOffice": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "description": "Order Status",
+          "enum": [
+            "federal",
+            "Legislative",
+            "state",
+            "local government"
+          ]
+        }
+      }
+    },
+    "PartyName": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "editedon": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "CreateParty": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "hqaddress": {
+          "type": "string"
+        },
+        "logourl": {
+          "type": "string"
+        }
+      }
+    },
+    "parties": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string"
+            },
+            "alias": {
+              "type": "string"
+            },
+            "hqaddress": {
+              "type": "string"
+            },
+            "logourl": {
+              "type": "string"
+            },
+            "datecreated": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "datemodified": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+    "login": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Auth": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "firstname": {
+          "type": "string"
+        },
+        "othername": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "confirmpassword": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "passporturl": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

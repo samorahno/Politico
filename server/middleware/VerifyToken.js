@@ -8,12 +8,15 @@ const verifyTokenObj = {
       return res.status(401).json({ message: 'Token is not provided' });
     }
     try {
-      const decoded = await jwt.verify(token, process.env.jwt_privateKey);
+      const decoded = await jwt.verify(token, process.env.jwt_privateKey);    
       req.user = decoded;
       const text = 'SELECT * FROM users WHERE id = $1';
       const { rows } = await dba.query(text, [decoded.userId]);
       if (!rows[0]) {
-        return res.status(401).send({ status: 401, message: 'The token you provided is invalid' });
+        return res.status(401).send({
+          status: 401,
+          message: 'The token you provided is invalid',
+        });
       }
       next();
     } catch (error) {
