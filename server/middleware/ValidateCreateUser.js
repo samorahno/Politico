@@ -14,11 +14,10 @@ class ValidateCreateUser {
     if (!userAuthHelper.isWhiteSpace(req.body.email, req.body.password, req.body.confirmPassword)) {
       return res.status(400).send({
         status: 400,
-        error: 'White Space are not allowed in input fields'
+        error: 'White Space are not allowed in input fields',
       });
     }
-    if (!validator.validateString(req.body.firstname) || !validator.validateString(req.body.othername)
-    || !validator.validateString(req.body.lastname)) {
+    if (!validator.validateString(req.body.firstname) || !validator.validateString(req.body.lastname)) {
       return res.status(400).send({
         status: 400,
         error: 'Name Is Invalid',
@@ -33,7 +32,7 @@ class ValidateCreateUser {
     if (!userAuthHelper.ispasswordValid(req.body.password)) {
       return res.status(400).send({
         status: 400,
-        error: 'Password Must Be at least Five Characters And Must Be A string',
+        error: 'Password Must Be at least Five Characters',
       });
     }
     if (!userAuthHelper.doesPasswordMatch(req.body.password, req.body.confirmPassword)) {

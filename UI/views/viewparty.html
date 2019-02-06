@@ -9,6 +9,10 @@
 	<link rel="stylesheet" href="../css/styleb.css" type="text/css">
 </head>
 <body>
+		<div id = "loader-overlay" >
+				<div class="loader">
+				</div>
+			</div>
 	<header>
 		<a href="dashboard.html"><span></span>Politico</a>
 		
@@ -68,7 +72,7 @@
 	
 		<div class="main-content">
 			<div class="title">
-				home / view party
+			
 			</div>
 			
 			
@@ -76,37 +80,20 @@
 			<div class="main">
 				<!-- CREATE POLITICAL PARTY START -->
 				<div class="widget widget_table" style="overflow-x:auto;">
-					<div class="title heado">Political Party</div>
-					<div class="widget_stat widget_stat_table">
-					<div style="overflow-x:auto;">
-						<table style="overflow:scroll;">
-							<tr>
-								<td colspan="2"><img src="../images/apclogo.jpg" alt="APC Logo" class="partylogo"></td>
-								
-							</tr>
-							<tr>
-								<td>Id</td>
-								<td>1</td>
-							</tr>
-							<tr>
-								<td>Name</td>
-								<td>All Progressive Congress (APC)</td>
-							</tr>
-							<tr>
-								<td>Head Quarters</td>
-								<td>40 Blantyre Street, Wuse II, Abuja</td>
-							</tr>
-							<tr>
-								<td>Created On</td>
-								<td>20 - 01 - 2019</td>
-							</tr>
-							
-						</table>
-						</div>
-						
-					</div>
-					
-				</div>
+                        <div class="title heado">Political Party</div>
+                        <div class="widget_stat widget_stat_table">
+                                <div class = "success-msg" id = "success-msg"></div>
+                                <div class = "error-msg" id = "error-msg"></div>
+                                <div class = "info-msg" id = "info-msg"></div>
+                        <div style="overflow-x:auto;">
+                          <table style="overflow:scroll;" id="party_container">
+                            
+                          </table>
+                          </div>
+                          
+                        </div>
+
+                    </div>
 				<!-- END POLITICAL PARTY -->
 			</div>
 			
@@ -118,5 +105,6 @@
 	</footer>
 	
 	<script src="../js/navscript.js"></script>
+	<script src="../js/viewparty.js"></script>
 </body>
 </html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Politico</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id = "loader-overlay" >
+        <div class="loader">
+        </div>
+    </div>
+    <div class="header1">
+        <a href="index.html">Politico</a>
+    </div>
+    <div id="showcase" class="grid">
+
+        <h1 class="white">Welcome to Politico</h1>
+        <p class="header-line2">...your vote is your right...</p>
+        <a href="#" class="btn2" id="myBtn">Login</a> <a href="#" class="btn2" id="myBtn2">Sign Up</a>
+
+        <div class="headline_intro"> <span>
+                <center><b>About Politico</b></center> <br />
+                Politico is a platform that enables citizens give their mandate to politicians running different
+                government offices while building trust in the process through transparency.
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="container8">
+        <span style="width:100%;">
+            <p style="width:100%;">The simple steps to
+                follow is shown below:</p>
+        </span>
+        <section class="step-indicator8">
+
+            <div class="step8 step1">
+                <div class="step-icon8">1</div>
+
+            </div>
+            <div class="indicator-line8"></div>
+            <div class="step8 step2">
+                <div class="step-icon8">2</div>
+
+            </div>
+            <div class="indicator-line8"></div>
+            <div class="step8 step3">
+                <div class="step-icon8">3</div>
+
+            </div>
+        </section>
+    </div>
+
+
+
+    <div class="steps mt">
+        <div class="column step">
+            <p class="section-text">
+                Create an account and login as a user to have access to view voting parameters.
+            </p>
+        </div>
+        <div class="column step">
+            <p class="section-text">
+                Vote any political party of your choice by selecting the party and your favorite candidate
+            </p>
+        </div>
+        <div class="column step">
+            <p class="section-text">
+                You can view the results of the election just by clicking the view result button.
+            </p>
+        </div>
+    </div>
+
+
+    <footer class="steps footercolor">
+        <div class="column step">
+            <table class="footer-table">
+                <tr>
+                    <td><span class="footer-td">
+                            <p><i class="fa fa-phone"></i> : +2348060955366 <br> <i class="fa fa-map-marker"></i> : 28,
+                                Adewale Street, Victoria Island, Lagos, Nigeria <br><i class="fa fa-envelope"></i> :
+                                samabos007@gmail.com </p>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="column step">
+            <p>
+                Politico | by Abosede Samson &copy; 2019
+            </p>
+            <p>
+
+            </p>
+        </div>
+    </footer>
+
+    <!--Modal 01 Start-->
+    <div id="myModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>
+                <form action="views/userdashboard.html" class="form-modal dd">
+                    <h1>Login</h1>
+                    <div class="input-group">
+
+                        <label>Email</label>
+                        <input type="text" name="fname" placeholder="Email" id="loginemail" required>
+
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" name="lname" placeholder="Password" id="loginpassword" required>
+                    </div>
+
+                    <div class="input-group">
+                        <button type="submit" name="submit" class="btn" id="loginbtn">Login</button>
+                        <a href="#" id="myBtn3">
+                            <p class="fp">forgot password?</p>
+                        </a>
+                    </div>
+
+                </form>
+            </p>
+        </div>
+
+    </div>
+    <!--Modal 01 End-->
+
+    <!--Modal 02 Start-->
+    <div id="myModal2" class="modal">
+
+        <div class="modal-content" id="modalcontent">
+            <span class="close">&times;</span>
+            <p>
+                <form action="views/userdashboard.html" class="form-modal dd">
+                    <h1>Signup</h1>
+                    <div class = "success-msg" id = "success-msg"></div>
+                    <div class = "warning-msg" id = "warning-msg"></div>
+                    <div class = "error-msg" id = "error-msg"></div>
+                    <div class = "info-msg" id = "info-msg"></div>
+                    <div class="input-group">
+                        <label>First Name</label>
+                        <input type="text" name="fullname" placeholder="First Name" id="firstname">
+
+                    </div>
+                    <div class="input-group">
+                        <label>Last Name</label>
+                        <input type="text" name="fullname" placeholder="Last Name" id="lastname">
+
+                    </div>
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" name="email" placeholder="E-mail" id="signupemail">
+                    </div>
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="text" name="pnumber" placeholder="Phone Number" id="phonenumber">
+                    </div>
+                    <label style="width:33%">Password / </label><label style="width:33%">Confirm Password</label>
+                    <div class="input-group">
+                        <input type="password" name="password" placeholder="Password" id="signuppassword" style="width:33%">
+                        <input type="password" name="password_confirm" placeholder="Confirm Password" id="confirmsignuppassword" style="width:33%">
+                    </div>
+                    <div class="input-group">
+                        <button type="submit" name="submit" class="btn" id="signupbtn">Register</button>
+                    </div>
+
+                </form>
+            </p>
+        </div>
+
+    </div>
+
+    <!--Modal 02 End-->
+
+    <!--Modal 03 Start-->
+    <div id="myModal3" class="modal">
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>
+                <form action="views/dashboard.html" class="form-modal dd">
+                    <h1>Reset Password</h1>
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="text" name="fname" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <button type="submit" name="submit" class="btn">Reset</button>
+                    </div>
+
+                </form>
+            </p>
+        </div>
+
+    </div>
+    <!--Modal 03 End-->
+    <script src="js/script.js"></script>
+    <script src="js/signup.js"></script>
+</body>
+
+</html>

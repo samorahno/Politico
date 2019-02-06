@@ -30,19 +30,19 @@ class UserAuthController {
       const values = [
         uuid(),
         firstname,
-        othername,
+        othername || '',
         lastname,
         email,
         hashPassword,
         phone,
-        passporturl,
+        passporturl || '',
         moment(new Date()),
       ];
 
       try {
         const { rows } = await dba.query(createQuery, values);
         const { id, email, isadmin } = rows[0];
-        const token = userAuthHelper.generateToken(rows[0].id);
+        const token = userAuthHelper.generateToken(rows[0].id, rows[0].isadmin);
         return res.status(201).header('x-auth-token', token).json({
           status: 201,
           message: 'User Successfully Created',
@@ -76,7 +76,7 @@ class UserAuthController {
         if (!userAuthHelper.comparePassword(rows[0].password, req.body.password)) {
           return res.status(401).send({ status: 401, message: 'The credentials you provided Are incorrect' });
         }
-         const token = userAuthHelper.generateToken(rows[0].id);
+         const token = userAuthHelper.generateToken(rows[0].id, rows[0].isadmin);
         return res.status(200).header('x-auth-token', token).json({
           status: 200,
           data: [{
@@ -88,6 +88,7 @@ class UserAuthController {
               lastname: rows[0].lastname,
               email: rows[0].email,
               phone: rows[0].phone,
+              isAdmin: rows[0].isadmin,
             },
           }],
         });
