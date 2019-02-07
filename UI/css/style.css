@@ -29,7 +29,6 @@ header {
 	padding: 20px;
 	border-radius: 20px;
 	opacity: 0.6;
-	background: #333;
 	background-image: url("../images/bg.png");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -164,6 +163,11 @@ p {
 	color: #5f9ea0;
 }
 
+.header-line2 {
+	color: #5f9ea0;
+	font-style: italic;
+}
+
 #showcase {
 	background-color: #fff;
 	background-image: url("../images/bg2.jpg");
@@ -182,7 +186,7 @@ p {
 
 #showcase.grid {
 	color: black;
-	height: 510px;
+	height: 570px;
 }
 
 #showcase h1 {
@@ -341,6 +345,7 @@ p {
 	text-align: center;
 	margin-right: auto;
 	margin-left: auto;
+	height:auto;
 }
 
 .td1 {
@@ -375,7 +380,6 @@ p {
 .section-title, .section-text {
 	position: relative;
 	margin-bottom: 15px;
-	background-color: white;
 	color: black;
 	border-radius: 7px;
 	padding: 5px;
@@ -491,7 +495,8 @@ p {
 }
 
 .fp {
-	font-size: 15px
+	font-size: 15px;
+	color: #5f9ea0;
 }
 
 .footer_align {
@@ -536,7 +541,7 @@ p {
 .close {
 	color: #aaaaaa;
 	float: right;
-	font-size: 28px;
+	font-size: 20px;
 	font-weight: bold;
 }
 
@@ -550,7 +555,7 @@ p {
 	width: 400px;
 	height: auto;
 	position: relative;
-	margin: 5% auto;
+	margin: 3% auto;
 	padding: 1rem;
 	background: #fff;
 	color: #444;
@@ -559,5 +564,59 @@ p {
 
   .modal h1 {
 	font-size: 100%;
-	margin: 0 0 10px;
+	margin: 0 0 3px;
   }
+
+.info-msg,
+.success-msg,
+.warning-msg,
+.error-msg {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px 3px 3px 3px;
+  display:none;
+}
+.info-msg {
+  color: #059;
+  background-color: #BEF;
+}
+.success-msg {
+  color: #270;
+  background-color: #DFF2BF;
+}
+.warning-msg {
+  color: #9F6000;
+  background-color: #FEEFB3;
+}
+.error-msg {
+  color: #D8000C;
+  background-color: #FFBABA;
+}
+
+#loader-overlay{
+    height: 100%;
+    width: 100%;
+    background: #5f9ea0;
+    position: fixed;
+    left: 0;
+    top: 0px;
+}
+.loader{
+    margin: 15em auto;
+    border: 16px solid #e3e3e3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+    
+}
+
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

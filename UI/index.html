@@ -11,26 +11,36 @@
 </head>
 
 <body>
+    <div id = "loader-overlay" >
+        <div class="loader">
+        </div>
+    </div>
     <div class="header1">
         <a href="index.html">Politico</a>
     </div>
     <div id="showcase" class="grid">
 
         <h1 class="white">Welcome to Politico</h1>
-        <p class="white">................your vote is your right</p>
+        <p class="header-line2">...your vote is your right...</p>
         <a href="#" class="btn2" id="myBtn">Login</a> <a href="#" class="btn2" id="myBtn2">Sign Up</a>
 
         <div class="headline_intro"> <span>
                 <center><b>About Politico</b></center> <br />
                 Politico is a platform that enables citizens give their mandate to politicians running different
-                government offices while building trust in the process through transparency. <p>The simple steps to
-                    follow is shown below:</p>
+                government offices while building trust in the process through transparency.
             </span>
+
         </div>
+
     </div>
 
     <div class="container8">
+        <span style="width:100%;">
+            <p style="width:100%;">The simple steps to
+                follow is shown below:</p>
+        </span>
         <section class="step-indicator8">
+
             <div class="step8 step1">
                 <div class="step-icon8">1</div>
 
@@ -84,7 +94,7 @@
         </div>
         <div class="column step">
             <p>
-                Politico | by Abosede Samson &copy; 2019 <span class="footer_align"><a href="#" id="myBtn4" title="login as admin">Admin</a></span>
+                Politico | by Abosede Samson &copy; 2019
             </p>
             <p>
 
@@ -102,17 +112,17 @@
                     <h1>Login</h1>
                     <div class="input-group">
 
-                        <label>Email or Phone Number</label>
-                        <input type="text" name="fname" placeholder="Email or Phone Number" required>
+                        <label>Email</label>
+                        <input type="text" name="fname" placeholder="Email" id="loginemail" required>
 
                     </div>
                     <div class="input-group">
                         <label>Password</label>
-                        <input type="password" name="lname" placeholder="Password" required>
+                        <input type="password" name="lname" placeholder="Password" id="loginpassword" required>
                     </div>
 
                     <div class="input-group">
-                        <button type="submit" name="submit" class="btn">Login</button>
+                        <button type="submit" name="submit" class="btn" id="loginbtn">Login</button>
                         <a href="#" id="myBtn3">
                             <p class="fp">forgot password?</p>
                         </a>
@@ -128,56 +138,40 @@
     <!--Modal 02 Start-->
     <div id="myModal2" class="modal">
 
-        <div class="modal-content">
+        <div class="modal-content" id="modalcontent">
             <span class="close">&times;</span>
             <p>
                 <form action="views/userdashboard.html" class="form-modal dd">
                     <h1>Signup</h1>
+                    <div class = "success-msg" id = "success-msg"></div>
+                    <div class = "warning-msg" id = "warning-msg"></div>
+                    <div class = "error-msg" id = "error-msg"></div>
+                    <div class = "info-msg" id = "info-msg"></div>
                     <div class="input-group">
                         <label>First Name</label>
-                        <input type="text" name="fullname" placeholder="First Name" required>
+                        <input type="text" name="fullname" placeholder="First Name" id="firstname">
 
                     </div>
                     <div class="input-group">
                         <label>Last Name</label>
-                        <input type="text" name="fullname" placeholder="Last Name" required>
-
-                    </div>
-                    <div class="input-group">
-                        <label>Other Name</label>
-                        <input type="text" name="fullname" placeholder="Other Name" required>
+                        <input type="text" name="fullname" placeholder="Last Name" id="lastname">
 
                     </div>
                     <div class="input-group">
                         <label>E-mail</label>
-                        <input type="email" name="email" placeholder="E-mail" required>
+                        <input type="email" name="email" placeholder="E-mail" id="signupemail">
                     </div>
                     <div class="input-group">
                         <label>Phone Number</label>
-                        <input type="text" name="pnumber" placeholder="Phone Number" required>
+                        <input type="text" name="pnumber" placeholder="Phone Number" id="phonenumber">
+                    </div>
+                    <label style="width:33%">Password / </label><label style="width:33%">Confirm Password</label>
+                    <div class="input-group">
+                        <input type="password" name="password" placeholder="Password" id="signuppassword" style="width:33%">
+                        <input type="password" name="password_confirm" placeholder="Confirm Password" id="confirmsignuppassword" style="width:33%">
                     </div>
                     <div class="input-group">
-                        <label>Password</label>
-                        <input type="password" name="password" placeholder="Password" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Confirm Password</label>
-                        <input type="password" name="password_confirm" placeholder="Confirm Password" required>
-                    </div>
-                    <div class="input-group">
-                            <label>Register as</label>
-                        <select name="logintype">
-                            <option value="">Select</option>
-                            <option value="politician">Politician</option>
-                            <option value="participant">Participant</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label>Passport</label>
-                        <input type="file" name="img1" accept="image/gif, image/png, image/jpeg" placeholder="select passport">
-                    </div>
-                    <div class="input-group">
-                        <button type="submit" name="submit" class="btn">Register</button>
+                        <button type="submit" name="submit" class="btn" id="signupbtn">Register</button>
                     </div>
 
                 </form>
@@ -210,37 +204,8 @@
 
     </div>
     <!--Modal 03 End-->
-    <!--Modal 04 Start-->
-    <div id="myModal4" class="modal">
-
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>
-                <form action="views/dashboard.html" class="form-modal dd">
-                    <h1>Login</h1>
-                    <div class="input-group">
-                        <label>Email or Phone Number</label>
-                        <input type="text" name="fname" placeholder="Email or Phone Number" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Password</label>
-                        <input type="password" name="lname" placeholder="Password" required>
-                    </div>
-
-                    <div class="input-group">
-                        <button type="submit" name="submit" class="btn">Login</button>
-                        <a href="#" id="myBtn3">
-                            <p class="fp">forgot password?</p>
-                        </a>
-                    </div>
-
-                </form>
-            </p>
-        </div>
-
-    </div>
-    <!--Modal 04 End-->
     <script src="js/script.js"></script>
+    <script src="js/signup.js"></script>
 </body>
 
 </html>
