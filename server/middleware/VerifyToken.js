@@ -5,10 +5,10 @@ const verifyTokenObj = {
   async verifyToken(req, res, next) {
     const token = req.headers['x-access-token'];
     if (!token) {
-      return res.status(401).json({ message: 'Token is not provided' });
+      return res.status(401).json({ status: 401, message: 'Token is not provided' });
     }
     try {
-      const decoded = await jwt.verify(token, process.env.jwt_privateKey);    
+      const decoded = await jwt.verify(token, process.env.jwt_privateKey);
       req.user = decoded;
       const text = 'SELECT * FROM users WHERE id = $1';
       const { rows } = await dba.query(text, [decoded.userId]);

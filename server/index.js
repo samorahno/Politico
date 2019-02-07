@@ -14,6 +14,7 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
+app.use(express.static('UI/'));
 app.use(cors());
 const swaggerDocument = require('../swagger.json');
 
@@ -29,7 +30,7 @@ app.use('/api/v1/auth', userAuthRoute);
 app.use('/api/v1', VoteRoute);
 app.use('/api/v1', resultRoute);
 
-app.get('*', (req, res) => res.status(404).json(
+app.use('*', (req, res) => res.status(404).json(
   {
     message: 'Page not found. Please visit /api/v1',
   },

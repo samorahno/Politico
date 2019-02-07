@@ -30,9 +30,10 @@ const userAuthHelper = {
     if (typeof confirmPassword === 'string' && confirmPassword.includes(' ')) return false;
     return true;
   },
-  generateToken(id) {
+  generateToken(id, admin) {
     const token = jwt.sign({
       userId: id,
+      isAdmin: admin,
     },
     process.env.jwt_privateKey, { expiresIn: '7d' });
     return token;
