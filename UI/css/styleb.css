@@ -484,7 +484,7 @@ button {
 }
 .loader{
     margin: 15em auto;
-    border: 16px solid #e3e3e3;
+    border: 16px solid #5f9ea0;
     border-radius: 50%;
     border-top: 16px solid #3498db;
     width: 100px;
