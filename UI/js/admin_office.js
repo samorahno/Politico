@@ -61,7 +61,7 @@ const allOffices = () => {
       if (body.status === 200) {
         let output = '';
         let count = 0;
-        const datecreated = new Date(Date.parse(body.data[0].datecreated)).toLocaleString();
+        const datecreated = new Date(Date.parse(body.data[0].created_date)).toLocaleString();
         body.data.forEach((office) => {
           count += 1;
           output += `<tr>

@@ -16,6 +16,7 @@
 	</header>
 	<div class="side-nav visible" id="togle_nav">
 		<nav>
+				<div id="loggedProfile"></div>
 			<ul>
 				<li>
 					<a href="dashboard.html">
@@ -77,16 +78,18 @@
 				<div class="widget widget_table" style="overflow-x:auto;">
 					<div class="title heado">Create New Political Party</div>
 					<div class="widget_stat widget_stat_table">
+							<div class = "success-msg" id = "success-msg"></div>
+							<div class = "error-msg" id = "error-msg"></div>
 						<div style="overflow-x:auto;">
 							<form action="#" method="GET">
 							 
 							 <div class="input-group">
 								   
 								 <label>Party Name</label>
-								 <input type="text" name="partyname" placeholder="Party Full Name">
+								 <input type="text" name="partyname" placeholder="Party Full Name" id="partyName">
 								 
 							 </div>
-							 <div class="input-group">
+							 <!--<div class="input-group">
 								   
 								 <label>Party Initials</label>
 								 <input type="text" name="partyname" placeholder="Party Initials (APC,PDP)">
@@ -101,12 +104,11 @@
 							 <div class="input-group">
 									<label>Party Logo</label>
 									<input type="file" name="img1" accept="image/gif, image/png, image/jpeg">
-							</div>
-							
-							
+							</div>							
+							-->
 							<div class="input-group">
 									<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<button type="submit" name="submit" class="btn">Edit Party</button>
+									<button type="submit" name="submit" class="btn" id="partyEditBtn">Edit Party</button>
 							</div>
 
 						</form>
@@ -129,5 +131,6 @@
 	</footer>
 	
 	<script src="../js/navscript.js"></script>
+	<script src="../js/editparty.js"></script>
 </body>
 </html>

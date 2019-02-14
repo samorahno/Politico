@@ -72,7 +72,7 @@ const allParties = () => {
               <td><a href="viewpartyu.html" class="tablelink">${party.hqaddress}</a></td>
               <td>
                             <span><a href="viewparty.html?partyid=${party.id}" title="View Party" id="viewparty">view</i></a></span> | 
-                            <span><a href="editparty.html" title="Edit Party">edit</i></a></span> | 
+                            <span><a href="editparty.html?partyid=${party.id}" title="Edit Party">edit</i></a></span> | 
                             <span><a href="#" title="Delete Party"  onclick = "return confirm ('Are you sure you want to delete this party?');">Delete</a></span>
           </tr>`;
         });
