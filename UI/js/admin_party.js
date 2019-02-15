@@ -65,6 +65,7 @@ const allParties = () => {
         let output = '';
         let count = 0;
         body.data.forEach((party) => {
+
           count += 1;
           output += `<tr>
               <td>${count}</td>
@@ -73,7 +74,8 @@ const allParties = () => {
               <td>
                             <span><a href="viewparty.html?partyid=${party.id}" title="View Party" id="viewparty">view</i></a></span> | 
                             <span><a href="editparty.html?partyid=${party.id}" title="Edit Party">edit</i></a></span> | 
-                            <span><a href="#" title="Delete Party"  onclick = "return confirm ('Are you sure you want to delete this party?');">Delete</a></span>
+                            <span><a href="#" title="Delete Party"  onclick = deleteParty(${JSON.stringify(party.id)});>Delete</a></span>
+                            
           </tr>`;
         });
 
@@ -84,3 +86,40 @@ const allParties = () => {
 };
 
 allParties();
+
+const deleteParty = (mmid) => {
+  const confirmDelete = confirm('Are you sure you want to delete this party?');
+  const adminToken = JSON.parse(localStorage.getItem('token'));
+  if (confirmDelete) {
+    fetch(`${localStorage.getItem('baseUrl')}parties/${mmid}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': adminToken,
+      },
+    })
+      .then(res => res.json())
+      .then((body) => {
+        if (body.status === 200) {
+          error.style.display = 'none';
+          success.style.display = 'block';
+          success.innerHTML = 'Party successfully Deleted';
+          setTimeout(() => {
+            window.location.reload(true);
+          }, 2000);
+        } else {
+          error.style.display = 'block';
+          if (body.message) {
+            error.innerHTML = body.message;
+          } else if (body.error) {
+            error.innerHTML = body.error;
+          } else {
+            error.innerHTML = 'An error Occured, Try again';
+          }
+        }
+      })
+      .catch(err => err);
+  } else {
+    window.location.reload(true);
+  }
+};
