@@ -33,13 +33,12 @@ loginBtn.addEventListener('click', (e) => {
           isAdmin: body.data[0].user.isAdmin,
         };
         localStorage.setItem('token', JSON.stringify(userData.token));
-        localStorage.setItem('name', JSON.stringify(userData.username));
+        localStorage.setItem('name', userData.username);
         errorLogin.style.display = 'none';
         successLogin.style.display = 'block';
         successLogin.innerHTML = 'Login Successful';
-        const name = localStorage.getItem('name');
-        loggedProfile.innerHTML = `Welcome ${name}`;
-
+        const loggedUserName = localStorage.getItem('name');
+        
         if (userData.isAdmin) {
           setTimeout(() => {
             window.location.href = 'views/dashboard.html';
@@ -47,7 +46,6 @@ loginBtn.addEventListener('click', (e) => {
         } else {
           setTimeout(() => {
             window.location.href = 'views/userdashboard.html';
-            
           }, 2000);
         }
       } else {

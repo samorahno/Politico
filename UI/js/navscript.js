@@ -19,3 +19,7 @@ function togle_nav_func() {
     elem.style.display = 'block';
   }
 }
+
+const name = localStorage.getItem('name');
+const loggedProfile = document.getElementById('loggedProfile');
+loggedProfile.innerHTML = `Welcome ${name}`;
