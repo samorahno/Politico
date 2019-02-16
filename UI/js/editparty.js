@@ -57,7 +57,7 @@ partyEditBtn.addEventListener('click', (e) => {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
-      'x-access-tok': adminToken,
+      'x-access-token': adminToken,
     },
     body: JSON.stringify(partyData),
   })
