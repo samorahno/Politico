@@ -8,6 +8,7 @@ import politicalOfficeRoute from './routes/politicalOffice';
 import userAuthRoute from './routes/userAuth';
 import VoteRoute from './routes/vote';
 import resultRoute from './routes/Result';
+import candidateRoute from './routes/candidate';
 
 
 dotenv.config();
@@ -29,6 +30,7 @@ app.use('/api/v1', politicalOfficeRoute);
 app.use('/api/v1/auth', userAuthRoute);
 app.use('/api/v1', VoteRoute);
 app.use('/api/v1', resultRoute);
+app.use('/api/v1', candidateRoute);
 
 app.use('*', (req, res) => res.status(404).json(
   {

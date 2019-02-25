@@ -3,7 +3,10 @@ const successLogin = document.getElementById('success-msg-login');
 const errorLogin = document.getElementById('error-msg-login');
 const loggedProfile = document.getElementById('loggedProfile');
 
-localStorage.setItem('baseUrl', 'https://samson-politico.herokuapp.com/api/v1/');
+const url = 'http://localhost:9000/api/v1/';
+const baseUrlOnline = 'https://samson-politico.herokuapp.com/api/v1/';
+
+localStorage.setItem('baseUrl', baseUrlOnline);
 
 loginBtn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -31,14 +34,15 @@ loginBtn.addEventListener('click', (e) => {
           username: body.data[0].user.firstname,
           token: body.data[0].token,
           isAdmin: body.data[0].user.isAdmin,
+          id: body.data[0].user.id,
         };
         localStorage.setItem('token', JSON.stringify(userData.token));
         localStorage.setItem('name', userData.username);
+        localStorage.setItem('id', userData.id);
         errorLogin.style.display = 'none';
         successLogin.style.display = 'block';
         successLogin.innerHTML = 'Login Successful';
         const loggedUserName = localStorage.getItem('name');
-        
         if (userData.isAdmin) {
           setTimeout(() => {
             window.location.href = 'views/dashboard.html';

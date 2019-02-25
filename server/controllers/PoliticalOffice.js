@@ -75,6 +75,8 @@ class OfficeController {
       const createQuery = `INSERT INTO 
       candidates(id, officeid, partyid, userid, created_date)
       VALUES($1, $2, $3, $4, $5) returning *`;
+
+      const updateInterestQuery = 'UPDATE interests SET status=$1 WHERE userid=$2 RETURNING *';
       try {
         const rowsid = await dba.query(textid_user, [userid]);
         const check_office = await dba.query(textid_office, [officeid]);
@@ -88,6 +90,7 @@ class OfficeController {
             moment(new Date()),
           ];
           const { rows } = await dba.query(createQuery, values);
+          const updateInterest = await dba.query(updateInterestQuery, [1, userid]);
           return res.status(201).json({
             status: 201,
             message: 'Candidate Successfully Created',
