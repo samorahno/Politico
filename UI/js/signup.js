@@ -4,8 +4,10 @@ const error = document.getElementById('error-msg');
 const warning = document.getElementById('warning-msg');
 const info = document.getElementById('info-msg');
 
+const url = 'http://localhost:9000/api/v1/';
+const baseUrlOnline = 'https://samson-politico.herokuapp.com/api/v1/';
 
-localStorage.setItem('baseUrl', 'https://samson-politico.herokuapp.com/api/v1/');
+localStorage.setItem('baseUrl', baseUrlOnline);
 
 signupBtn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -40,15 +42,16 @@ signupBtn.addEventListener('click', (e) => {
         const userData = {
           username: body.data[0].user.firstname,
           token: body.data[0].token,
+          id: body.data[0].user.id,
         };
         localStorage.setItem('token', JSON.stringify(userData.token));
-        localStorage.setItem('name', JSON.stringify(userData.username));
+        localStorage.setItem('name', userData.username);
+        localStorage.setItem('id', userData.id);
         error.style.display = 'none';
         success.style.display = 'block';
         success.innerHTML = 'Signup Successful';
-        
         setTimeout(() => {
-          window.location.href = 'views/userdashboard.html';    
+          window.location.href = 'views/userdashboard.html';
         }, 2000);
         document.location.href = '#modalcontent';
       } else {

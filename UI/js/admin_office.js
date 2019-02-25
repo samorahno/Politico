@@ -69,10 +69,10 @@ const allOffices = () => {
           <td>${office.name}</td>
           <td>${office.type}</td>
           <td>${datecreated}</td>
-          <td>
+          <!--<td>
               <span><a href="editoffice.html" title="Edit Office">view</i></a></span> | 
               <span><a href="#" title="Delete Office" onclick = "return confirm ('Are you sure you want to delete this office?');">delete</i></a></span>
-          </td>
+          </td>-->
       </tr>`;
         });
 

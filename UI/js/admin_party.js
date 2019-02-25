@@ -65,7 +65,6 @@ const allParties = () => {
         let output = '';
         let count = 0;
         body.data.forEach((party) => {
-
           count += 1;
           output += `<tr>
               <td>${count}</td>
@@ -88,6 +87,8 @@ const allParties = () => {
 allParties();
 
 const deleteParty = (mmid) => {
+  // eslint-disable-next-line no-alert
+  // eslint-disable-next-line no-restricted-globals
   const confirmDelete = confirm('Are you sure you want to delete this party?');
   const adminToken = JSON.parse(localStorage.getItem('token'));
   if (confirmDelete) {

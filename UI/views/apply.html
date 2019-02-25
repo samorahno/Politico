@@ -83,34 +83,32 @@
 				<!-- START -->
 				<div class="widget widget_table" style="overflow-x:auto;">
 					<div class="title heado">Apply for Political Office</div>
+
 					<div class="widget_stat widget_stat_table">
+							<div class = "success-msg" id = "success-msg"></div>
+							<div class = "warning-msg" id = "warning-msg"></div>
+							<div class = "error-msg" id = "error-msg"></div>
+							<div class = "info-msg" id = "info-msg"></div>
 						<div style="overflow-x:auto;">
 							<form action="#" method="GET">
 							 
 						
 							 <div class="input-group">
 								<label>Party Name</label>
-								<select id="types" name="type">
+								<select id="partyList" name="type">
 									<option value="">Select Party</option>
-								  <option value="pdp">People Democratic Party (PDP)</option>
-								  <option value="ad">Alliance for Democracy (AD)</option>
-								  <option value="apc">All Progressive Congress (APC)</option>
-								  <option value="lp">Labour Party (LP)</option>
 								</select>
 							</div>
 							<div class="input-group">
 								<label>Office Name</label>
-								<select id="types" name="type">
+								<select id="officeList" name="type">
 									<option value="">Select Office</option>
-								  <option value="nationalassembly">National Assembly Member</option>
-								  <option value="legislative">Legislative Council Member</option>
-								  <option value="localgovernment">Local Government Chairman</option>
 								</select>
 							</div>
 							
 							<div class="input-group">
 									<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-									<button type="submit" name="submit" class="btn">Apply for Office</button>
+									<button type="submit" name="submit" class="btn" id="officeApplyButton">Apply for Office</button>
 							</div>
 
 						</form>
@@ -128,5 +126,6 @@
 	</footer>
 	
 	<script src="../js/navscript.js"></script>
+	<script src="../js/apply.js"></script>
 </body>
 </html>
