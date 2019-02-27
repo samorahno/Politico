@@ -73,6 +73,31 @@ class CandidateController {
       });
     }
   }
+
+  static async getCandidateByOffice(req, res) {
+    const { officeid } = req.params;
+    const candidateQuery = `SELECT politicaloffices.name as office, politicalparties.name as party, politicalparties.alias as acronym, users.firstname, users.lastname, candidates.id as candidateid 
+    FROM candidates
+    join politicaloffices on officeid = politicaloffices.id
+    join politicalparties on partyid = politicalparties.id 
+    join users on userid = users.id
+    WHERE candidates.officeid=$1`;
+
+    try {
+      const candidateResult = await dba.query(candidateQuery, [officeid]);
+      if (candidateResult) {
+        return res.json({
+          status: 200,
+          data: candidateResult.rows,
+        });
+      }
+    } catch (error) {
+      return res.status(400).json({
+        status: 400,
+        error: 'An error occured. Try again',
+      });
+    }
+  }
 }
 
 export default CandidateController;

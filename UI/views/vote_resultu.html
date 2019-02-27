@@ -85,63 +85,40 @@
 				<div class="widget widget_table" style="overflow-x:auto;">
 					<div class="title heado">Vote Results</div>
 					<div class="widget_stat widget_stat_table">
+							<form action="#" method="GET">
 					<div style="overflow-x:auto;">
 						<table style="overflow:scroll;">
 						<thead>
 							<tr>
-								<th>S/N</th>
+								
 								<th>Office</th>
-								<th>Candidate Result</th>
-								<th>Winner</th>
+								<th>Result</th>
+								
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>1</td>
-								<td>National Assembly Member</td>
+								
 								<td>
-									<ul class="voteresult">
-										<li>Wale Ojo - 44</li>
-										<li>Ahmed Mark - 33</li>
-										<li>Bimbo Ali - 12</li>
-										<li>Tolu Oni - 41</li>
+										<div class="input-group">
+												<select id="officeList" name="offices">
+													<option value="">Select an office</option>
+												</select>
+											</div>
+								</td>
+								<td>
+									<ul class="voteresult" id="voteResult">
 									</ul>
 									
 								</td>
-								<td><strong>Wale Ojo (PDP)</strong></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Legislative Council Member</td>
-								<td>
-									<ul class="voteresult">
-										<li>Tola Odeyemi - 24</li>
-										<li>Tina Odili - 37</li>
-										
-									</ul>
-									
-								</td>
-								<td><strong>Tina Odili (APC)</strong></td>
-							</tr>
-							
-							<tr>
-								<td>3</td>
-								<td>Local Government Chairman</td>
-								<td>
-									<ul class="voteresult">
-										<li>Goke Talabi - 24</li>
-										<li>Tolu Oni - 37</li>
-										<li>Ale Niyi - 31</li>
-									</ul>
-									
-								</td>
-								<td><strong>Tolu Oni (LP)</strong></td>
+								
 							</tr>
 
 						</tbody>
 						</table>
-						<button class="btn btnmore">View More</button>
+						<!--<button class="btn btnmore">View More</button>-->
 						</div>
+						</form>
 					</div>
 				</div>
 				<!-- END POLITICAL PARTY -->
@@ -155,5 +132,6 @@
 	</footer>
 	
 	<script src="../js/navscript.js"></script>
+	<script src="../js/voteresult.js"></script>
 </body>
 </html>

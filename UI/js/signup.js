@@ -4,10 +4,10 @@ const error = document.getElementById('error-msg');
 const warning = document.getElementById('warning-msg');
 const info = document.getElementById('info-msg');
 
-const url = 'http://localhost:9000/api/v1/';
-const baseUrlOnline = 'https://samson-politico.herokuapp.com/api/v1/';
+const url_signup = 'http://localhost:9000/api/v1/';
+const baseUrlSignup = 'https://samson-politico.herokuapp.com/api/v1/';
 
-localStorage.setItem('baseUrl', baseUrlOnline);
+localStorage.setItem('baseUrl', url_signup);
 
 signupBtn.addEventListener('click', (e) => {
   e.preventDefault();

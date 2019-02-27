@@ -12,6 +12,7 @@ class VoteController {
     const createQuery = `INSERT INTO 
           votes(id, officeid, candidateid, userid, created_date)
           VALUES($1, $2, $3, $4, $5) returning *`;
+          
     try {
       const check_voter = await dba.query(textid_voter, [userId, office]);
       if (check_voter.rowCount > 0) {
@@ -36,7 +37,7 @@ class VoteController {
     } catch (error) {
       return res.status(404).json({
         status: 404,
-        message: 'An error occured',
+        message: 'Error!, Please check to be a sure a candidate is available',
       });
     }
   }

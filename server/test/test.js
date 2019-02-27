@@ -394,7 +394,7 @@ describe('post /v1/offices', () => {
     chai.request(app)
       .post('/api/v1/offices')
       .send({
-        name: 'People Democratic Party',
+        name: 'House of Assembly',
         type: 'Federal',
       })
       .set('x-access-token', adminToken)
@@ -410,27 +410,6 @@ describe('post /v1/offices', () => {
   });
 });
 
-describe('post /v1/offices', () => {
-  it('should return 201 created if the value of the fields are correct', (done) => {
-    chai.request(app)
-      .post('/api/v1/offices')
-      .send({
-        name: 'People Democratic Party',
-        type: 'Federal',
-      })
-      .set('x-access-token', adminToken)
-      .end((err, res) => {
-        expect(err).to.be.null;
-        expect(res).to.have.headers;
-        expect(res.body).to.have.property('status').eql(201);
-        expect(res.body).to.have.property('message').eql('Office Successfully Created');
-        expect(res).to.have.status(201);
-        expect(res).to.not.redirect;
-        expect(res.body).to.be.an('object');
-        done();
-      });
-  });
-});
 
 describe('post /v1/offices', () => {
   it('should return 400 error if the type is not equal to the options listed', (done) => {

@@ -5,18 +5,17 @@ class ResultController {
     const { officeid, result } = req.params;
     if (result === 'result') {
       const query_office = 'SELECT * FROM politicaloffices WHERE id = $1';
-      const query_result = 'SELECT officeid, candidateid, count(candidateid) as results FROM votes where officeid = $1 GROUP BY candidateid, officeid';
-
+      const query_result = `SELECT votes.officeid, users.firstname, users.lastname, politicalparties.name as party, politicalparties.alias as acronym, count(candidateid) as votes
+        FROM votes, candidates, users, politicalparties
+        WHERE votes.candidateid = candidates.id
+        AND candidates.userid = users.id
+        AND candidates.partyid = politicalparties.id
+        AND votes.officeid = $1
+        GROUP BY votes.officeid, votes.candidateid, users.firstname, users.lastname, politicalparties.name, politicalparties.alias`;
       try {
         const check_office = await dba.query(query_office, [officeid]);
         if (check_office) {
           const check_result = await dba.query(query_result, [officeid]);
-          if (check_result.rowCount < 1) {
-            return res.status(404).send({
-              status: 404,
-              error: 'No result found for this office',
-            });
-          }
           return res.status(200).send({
             status: 200,
             data: check_result.rows,
