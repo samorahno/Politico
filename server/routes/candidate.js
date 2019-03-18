@@ -6,12 +6,15 @@ import VerifyIsAdmin from '../middleware/VerifyIsAdmin';
 
 const router = express.Router();
 const { verifyToken } = verifyTokenObject;
-const { viewCandidates, createInterest, viewAllInterests } = CandidateController;
+const {
+  viewCandidates, createInterest, viewAllInterests, getCandidateByOffice,
+} = CandidateController;
 const { VerifyUserInterestExistence } = verifyUserInterestExistence;
 const { verifyIsAdmin } = VerifyIsAdmin;
 
 router.get('/candidates/', viewCandidates);
 router.post('/interest/', verifyToken, VerifyUserInterestExistence, createInterest);
 router.get('/interest/', verifyToken, verifyIsAdmin, viewAllInterests);
+router.get('/candidates/:officeid/', verifyToken, getCandidateByOffice);
 
 export default router;

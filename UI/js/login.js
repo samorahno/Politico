@@ -3,10 +3,10 @@ const successLogin = document.getElementById('success-msg-login');
 const errorLogin = document.getElementById('error-msg-login');
 const loggedProfile = document.getElementById('loggedProfile');
 
-const url = 'http://localhost:9000/api/v1/';
-const baseUrlOnline = 'https://samson-politico.herokuapp.com/api/v1/';
+const url_login = 'http://localhost:9000/api/v1/';
+const baseUrlLogin = 'https://samson-politico.herokuapp.com/api/v1/';
 
-localStorage.setItem('baseUrl', baseUrlOnline);
+localStorage.setItem('baseUrl', url_login);
 
 loginBtn.addEventListener('click', (e) => {
   e.preventDefault();

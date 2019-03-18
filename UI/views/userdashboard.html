@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Politico Dashboard</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Politico Dashboard</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/styleb.css" type="text/css">
-	
+
 </head>
+
 <body>
-		<div id = "loader-overlay" >
-        <div class="loader">
-        </div>
-    </div>
+	<div id="loader-overlay">
+		<div class="loader">
+		</div>
+	</div>
 	<header>
 		<a href="userdashboard.html"><span></span>Politico</a>
-		
+
 		<a href="#" class="minimize_button" onclick="togle_nav_func()"><span><i class="fa fa-bars fa-1x"></i></span></a>
 	</header>
 	<div class="side-nav visible" id="togle_nav">
@@ -25,79 +27,159 @@
 			<ul>
 				<li class="active">
 					<a href="userdashboard.html">
-						<span ><i class="fa fa-home fa-fw"></i></span>
+						<span><i class="fa fa-home fa-fw"></i></span>
 						<span>Home</span>
 					</a>
 				</li>
-				<li> 
+				<li>
 					<a href="party.html">
-						<span ><i class="fa fa-asterisk"></i></span>
+						<span><i class="fa fa-asterisk"></i></span>
 						<span>Political Party</span>
 					</a>
 				</li>
-				<li> 
+				<li>
 					<a href="office.html">
-						<span ><i class="fa fa-compress"></i></span>
+						<span><i class="fa fa-compress"></i></span>
 						<span>Political Office</span>
 					</a>
 				</li>
-				<li> 
+				<li>
 					<a href="apply.html">
-						<span ><i class="fa fa-pencil-square"></i></span>
+						<span><i class="fa fa-pencil-square"></i></span>
 						<span>Apply for office</span>
 					</a>
 				</li>
-				<li> 
+				<li>
 					<a href="vote.html">
-						<span ><i class="fa fa-user"></i></span>
+						<span><i class="fa fa-user"></i></span>
 						<span>Vote</span>
 					</a>
 				</li>
-				
-				<li> 
+
+				<li>
 					<a href="vote_resultu.html">
-						<span ><i class="fa fa-envelope"></i></span>
+						<span><i class="fa fa-envelope"></i></span>
 						<span>Vote Result</span>
 					</a>
 				</li>
-				
+
 				<li>
 					<a href="viewprofile.html">
-						<span ><i class="fa fa-envelope"></i></span>
+						<span><i class="fa fa-envelope"></i></span>
 						<span>View Profile</span>
 					</a>
 				</li>
 				<li>
 					<a href="../index.html">
-						<span ><i class="fa fa-power-off"></i></span>
+						<span><i class="fa fa-power-off"></i></span>
 						<span>Logout</span>
 					</a>
 				</li>
-				
+
 			</ul>
 		</nav>
 	</div>
-	
-	
-	
-		<div class="main-content">
-				<div class="title">	
-					</div>		
-			<main class="cards" id="candidate-container">
-				  
-      </main>
-			<button class="btn paddmore">View More</button>
-			
-				
-			</div>
+
+
+
+	<div class="main-content">
+		<div class="title">
 		</div>
-	
+		<main class="cards" id="candidate-container">
+			<div style="width: 100%; height: 100%; text-align: center;">
+				<div id="svgLoader" style="width: 100%; margin-right: auto; margin-left:auto;">
+					<svg class="lds-spin" width="200px" height="200px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+					 viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="background: none; text-align:center;">
+						<g transform="translate(80,50)">
+							<g transform="rotate(0)">
+								<circle cx="0" cy="0" r="10" fill="#28d7ea" fill-opacity="1" transform="scale(1.05765 1.05765)">
+									<animateTransform attributeName="transform" type="scale" begin="-0.875s" values="1.1 1.1;1 1" keyTimes="0;1"
+									 dur="1s" repeatCount="indefinite"></animateTransform>
+									<animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.875s"></animate>
+								</circle>
+							</g>
+						</g>
+						<g transform="translate(71.21320343559643,71.21320343559643)">
+							<g transform="rotate(45)">
+								<circle cx="0" cy="0" r="10" fill="#28d7ea" fill-opacity="0.875" transform="scale(1.07015 1.07015)">
+									<animateTransform attributeName="transform" type="scale" begin="-0.75s" values="1.1 1.1;1 1" keyTimes="0;1"
+									 dur="1s" repeatCount="indefinite"></animateTransform>
+									<animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.75s"></animate>
+								</circle>
+							</g>
+						</g>
+						<g transform="translate(50,80)">
+							<g transform="rotate(90)">
+								<circle cx="0" cy="0" r="10" fill="#28d7ea" fill-opacity="0.75" transform="scale(1.08265 1.08265)">
+									<animateTransform attributeName="transform" type="scale" begin="-0.625s" values="1.1 1.1;1 1" keyTimes="0;1"
+									 dur="1s" repeatCount="indefinite"></animateTransform>
+									<animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.625s"></animate>
+								</circle>
+							</g>
+						</g>
+						<g transform="translate(28.786796564403577,71.21320343559643)">
+							<g transform="rotate(135)">
+								<circle cx="0" cy="0" r="10" fill="#28d7ea" fill-opacity="0.625" transform="scale(1.09515 1.09515)">
+									<animateTransform attributeName="transform" type="scale" begin="-0.5s" values="1.1 1.1;1 1" keyTimes="0;1" dur="1s"
+									 repeatCount="indefinite"></animateTransform>
+									<animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.5s"></animate>
+								</circle>
+							</g>
+						</g>
+						<g transform="translate(20,50.00000000000001)">
+							<g transform="rotate(180)">
+								<circle cx="0" cy="0" r="10" fill="#28d7ea" fill-opacity="0.5" transform="scale(1.00765 1.00765)">
+									<animateTransform attributeName="transform" type="scale" begin="-0.375s" values="1.1 1.1;1 1" keyTimes="0;1"
+									 dur="1s" repeatCount="indefinite"></animateTransform>
+									<animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.375s"></animate>
+								</circle>
+							</g>
+						</g>
+						<g transform="translate(28.78679656440357,28.786796564403577)">
+							<g transform="rotate(225)">
+								<circle cx="0" cy="0" r="10" fill="#28d7ea" fill-opacity="0.375" transform="scale(1.02015 1.02015)">
+									<animateTransform attributeName="transform" type="scale" begin="-0.25s" values="1.1 1.1;1 1" keyTimes="0;1"
+									 dur="1s" repeatCount="indefinite"></animateTransform>
+									<animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.25s"></animate>
+								</circle>
+							</g>
+						</g>
+						<g transform="translate(49.99999999999999,20)">
+							<g transform="rotate(270)">
+								<circle cx="0" cy="0" r="10" fill="#28d7ea" fill-opacity="0.25" transform="scale(1.03265 1.03265)">
+									<animateTransform attributeName="transform" type="scale" begin="-0.125s" values="1.1 1.1;1 1" keyTimes="0;1"
+									 dur="1s" repeatCount="indefinite"></animateTransform>
+									<animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="-0.125s"></animate>
+								</circle>
+							</g>
+						</g>
+						<g transform="translate(71.21320343559643,28.78679656440357)">
+							<g transform="rotate(315)">
+								<circle cx="0" cy="0" r="10" fill="#28d7ea" fill-opacity="0.125" transform="scale(1.04515 1.04515)">
+									<animateTransform attributeName="transform" type="scale" begin="0s" values="1.1 1.1;1 1" keyTimes="0;1" dur="1s"
+									 repeatCount="indefinite"></animateTransform>
+									<animate attributeName="fill-opacity" keyTimes="0;1" dur="1s" repeatCount="indefinite" values="1;0" begin="0s"></animate>
+								</circle>
+							</g>
+						</g>
+					</svg>
+				</div>
+			</div>
+			<!--END SVG LOADER DISPLAY-->
+		</main>
+		<button class="btn paddmore">View More</button>
+
+
+	</div>
+	</div>
+
 	<footer>
 		&copy; 2019 Politico by Abosede Samson
 	</footer>
-	
-	 <script src="../js/navscript.js"></script>
-	 <script src="../js/userdashboard.js"></script>
-	 
+
+	<script src="../js/navscript.js"></script>
+	<script src="../js/userdashboard.js"></script>
+
 </body>
+
 </html>

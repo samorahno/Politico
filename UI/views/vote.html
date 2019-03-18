@@ -1,165 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Politico Dashboard</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Politico Dashboard</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../css/styleb.css" type="text/css">
 </head>
+
 <body>
 	<header>
 		<a href="dashboard.html"><span></span>Politico</a>
-		
+
 		<a href="#" class="minimize_button" onclick="togle_nav_func()"><span><i class="fa fa-bars fa-1x"></i></span></a>
 	</header>
 	<div class="side-nav visible" id="togle_nav">
 		<nav>
-				<div id="loggedProfile"></div>
+			<div id="loggedProfile"></div>
 			<ul>
 				<li>
 					<a href="userdashboard.html">
-						<span ><i class="fa fa-home fa-fw"></i></span>
+						<span><i class="fa fa-home fa-fw"></i></span>
 						<span>Home</span>
 					</a>
 				</li>
-				<li> 
+				<li>
 					<a href="party.html">
-						<span ><i class="fa fa-asterisk"></i></span>
+						<span><i class="fa fa-asterisk"></i></span>
 						<span>Political Party</span>
 					</a>
 				</li>
-				<li> 
+				<li>
 					<a href="office.html">
-						<span ><i class="fa fa-compress"></i></span>
+						<span><i class="fa fa-compress"></i></span>
 						<span>Political Office</span>
 					</a>
 				</li>
-				<li> 
+				<li>
 					<a href="apply.html">
-						<span ><i class="fa fa-pencil-square"></i></span>
+						<span><i class="fa fa-pencil-square"></i></span>
 						<span>Apply for office</span>
 					</a>
 				</li>
-				<li class="active"> 
+				<li class="active">
 					<a href="vote.html">
-						<span ><i class="fa fa-user"></i></span>
+						<span><i class="fa fa-user"></i></span>
 						<span>Vote</span>
 					</a>
 				</li>
-				
-				<li> 
+
+				<li>
 					<a href="vote_resultu.html">
-						<span ><i class="fa fa-envelope"></i></span>
+						<span><i class="fa fa-envelope"></i></span>
 						<span>Vote Result</span>
 					</a>
 				</li>
-				
+
 				<li>
 					<a href="viewprofile.html">
-						<span ><i class="fa fa-envelope"></i></span>
+						<span><i class="fa fa-envelope"></i></span>
 						<span>View Profile</span>
 					</a>
 				</li>
 				<li>
 					<a href="../index.html">
-						<span ><i class="fa fa-power-off"></i></span>
+						<span><i class="fa fa-power-off"></i></span>
 						<span>Logout</span>
 					</a>
 				</li>
-				
+
 			</ul>
 		</nav>
 	</div>
-	
-		<div class="main-content">
-			<div class="title">
-				
-			</div>
-		
-			<div class="main">
-				<!-- VIEW POLITICAL CANDIDATES -->
-				<div class="widget widget_table" style="overflow-x:auto;">
-					<div class="title heado">Vote your preferred candidates</div>
-					<div class="widget_stat widget_stat_table">
-					<div style="overflow-x:auto;">
-					<form action="#" method="GET">
-						<table style="overflow:scroll;">
-						<thead>
-							<tr>
-								<th>S/N</th>
-								<th>Office</th>
-								<th>Candidate</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td>National Assembly Member</td>
-								<td>
-									<div class="input-group">
-									 <select id="pnames" name="names" >
-										<option value="name1">Wale Ojo - PDP</option>
-										<option value="name2">Ahmed Mark - APC</option>
-										<option value="name3">Bimbo Ali - AD</option>
-										<option value="name4">Tolu Oni - LP</option>
-									  </select>
-									</div>
-								</td>
-							
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Legislative Council Member</td>
-								<td>
-									
-									<div class="input-group">
-									 <select id="pnames" name="names" >
-										<option value="name1">Tola Odeyemi - PDP</option>
-										<option value="name2">Tina Odili - APC</option>
-										
-									  </select>
-									</div>
-									
-								</td>
-								
-							</tr>
-							
-							<tr>
-								<td>3</td>
-								<td>Local Government Chairman</td>
-								<td>
-									<div class="input-group">
-									 <select id="pnames" name="names" >
-										<option value="name1">Goke Talabi - PDP</option>
-										<option value="name2">Tolu Oni - LP</option>
-										<option value="name3">Ale Niyi - APC</option>
-										
-										
-									  </select>
-									</div>
-								</td>
-					
-							</tr>
 
-						</tbody>
-						</table>
-						<button class="btn btnmore">Vote</button>
+	<div class="main-content">
+		<div class="title">
+
+		</div>
+
+		<div class="main">
+			<!-- VIEW POLITICAL CANDIDATES -->
+			<div class="widget widget_table" style="overflow-x:auto;">
+				<div class="title heado">Vote your preferred candidates</div>
+				<div class="widget_stat widget_stat_table">
+						<div class = "success-msg" id = "success-msg"></div>
+						<div class = "warning-msg" id = "warning-msg"></div>
+						<div class = "error-msg" id = "error-msg"></div>
+						<div class = "info-msg" id = "info-msg"></div>
+					<div style="overflow-x:auto;">
+						<form action="#" method="GET">
+							<table style="overflow:scroll;">
+								<thead>
+									<tr>
+										<th>Office</th>
+										<th>Candidate</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="input-group">
+												<select id="officeList" name="offices">
+													<option value="">Select an office</option>
+												</select>
+											</div>
+										</td>
+										<td>
+											<div class="input-group">
+												<select id="candidateList" name="candidates">
+													<option value="name1">Candidates</option>
+												</select>
+											</div>
+										</td>
+
+									</tr>
+
+								</tbody>
+							</table>
+							<button class="btn btnmore" id="voteButton">Vote</button>
 						</form>
-						</div>
 					</div>
 				</div>
-				<!-- END VIEW POLITICAL CANDIDATES -->
 			</div>
-			
-			
+			<!-- END VIEW POLITICAL CANDIDATES -->
 		</div>
-	
+
+
+	</div>
+
 	<footer>
 		&copy; 2019 Politico by Abosede Samson
 	</footer>
-	
+
 	<script src="../js/navscript.js"></script>
+	<script src="../js/vote.js"></script>
 </body>
+
 </html>
