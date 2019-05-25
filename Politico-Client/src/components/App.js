@@ -5,21 +5,23 @@ import Footer from './nav/Footer';
 import Landing from './landing/landing';
 import viewoffice from './dashboard/viewoffice';
 import '../styles/landing.css';
+import Sidebar from '../components/nav/DashboardSidebar';
 
 
 class App extends Component {
     render() {
         return(
             <div>
-                <div className="App">
-                    <Router>
+                 <Router>
+                    <div className="App">
                         <Header />
                         <Route exact path="/" component={Landing}/>
                         <Route exact path="/view" component={viewoffice}/>
-                        {/* <Route exact path="/profile" component={Profile}/>*/}  
-                        <Footer />                                      
-                    </Router>
-                </div>
+                        {/* <Route exact path="/profile" component={Profile}/>*/} 
+                        <Route exact path="/member" component={Sidebar} /> 
+                        <Footer /> 
+                    </div>                                     
+                </Router>               
             </div>
         );        
     }
